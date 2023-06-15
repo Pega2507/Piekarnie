@@ -45,9 +45,21 @@
             this.btnEdytujMagazyny = new System.Windows.Forms.Button();
             this.btnDodajMagazyny = new System.Windows.Forms.Button();
             this.tabProdukty = new System.Windows.Forms.TabPage();
+            this.btnUsunProdukty = new System.Windows.Forms.Button();
+            this.btnEdytujProdukty = new System.Windows.Forms.Button();
+            this.btnDodajProdukty = new System.Windows.Forms.Button();
             this.tabPodmioty = new System.Windows.Forms.TabPage();
+            this.btnUsunPodmioty = new System.Windows.Forms.Button();
+            this.btnEdytujPodmioty = new System.Windows.Forms.Button();
+            this.btnDodajPodmioty = new System.Windows.Forms.Button();
             this.tabStatusy = new System.Windows.Forms.TabPage();
+            this.btnUsunStatusy = new System.Windows.Forms.Button();
+            this.btnEdytujStatusy = new System.Windows.Forms.Button();
+            this.btnDodajStatusy = new System.Windows.Forms.Button();
             this.tabUzytkownicy = new System.Windows.Forms.TabPage();
+            this.btnUsunUzytk = new System.Windows.Forms.Button();
+            this.btnEdytujUzytk = new System.Windows.Forms.Button();
+            this.btnDodajUzytk = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabZamowieniaTab = new System.Windows.Forms.TabPage();
@@ -63,18 +75,6 @@
             this.Imię = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktywny = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUsunProdukty = new System.Windows.Forms.Button();
-            this.btnEdytujProdukty = new System.Windows.Forms.Button();
-            this.btnDodajProdukty = new System.Windows.Forms.Button();
-            this.btnUsunPodmioty = new System.Windows.Forms.Button();
-            this.btnEdytujPodmioty = new System.Windows.Forms.Button();
-            this.btnDodajPodmioty = new System.Windows.Forms.Button();
-            this.btnUsunStatusy = new System.Windows.Forms.Button();
-            this.btnEdytujStatusy = new System.Windows.Forms.Button();
-            this.btnDodajStatusy = new System.Windows.Forms.Button();
-            this.btnUsunUzytk = new System.Windows.Forms.Button();
-            this.btnEdytujUzytk = new System.Windows.Forms.Button();
-            this.btnDodajUzytk = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabZamowienia.SuspendLayout();
@@ -261,6 +261,33 @@
             this.tabProdukty.Text = "Produkty";
             this.tabProdukty.UseVisualStyleBackColor = true;
             // 
+            // btnUsunProdukty
+            // 
+            this.btnUsunProdukty.Location = new System.Drawing.Point(152, 9);
+            this.btnUsunProdukty.Name = "btnUsunProdukty";
+            this.btnUsunProdukty.Size = new System.Drawing.Size(66, 48);
+            this.btnUsunProdukty.TabIndex = 5;
+            this.btnUsunProdukty.Text = "Usuń";
+            this.btnUsunProdukty.UseVisualStyleBackColor = true;
+            // 
+            // btnEdytujProdukty
+            // 
+            this.btnEdytujProdukty.Location = new System.Drawing.Point(80, 9);
+            this.btnEdytujProdukty.Name = "btnEdytujProdukty";
+            this.btnEdytujProdukty.Size = new System.Drawing.Size(66, 48);
+            this.btnEdytujProdukty.TabIndex = 4;
+            this.btnEdytujProdukty.Text = "Edytuj";
+            this.btnEdytujProdukty.UseVisualStyleBackColor = true;
+            // 
+            // btnDodajProdukty
+            // 
+            this.btnDodajProdukty.Location = new System.Drawing.Point(8, 9);
+            this.btnDodajProdukty.Name = "btnDodajProdukty";
+            this.btnDodajProdukty.Size = new System.Drawing.Size(66, 48);
+            this.btnDodajProdukty.TabIndex = 3;
+            this.btnDodajProdukty.Text = "Dodaj";
+            this.btnDodajProdukty.UseVisualStyleBackColor = true;
+            // 
             // tabPodmioty
             // 
             this.tabPodmioty.Controls.Add(this.btnUsunPodmioty);
@@ -272,6 +299,33 @@
             this.tabPodmioty.TabIndex = 4;
             this.tabPodmioty.Text = "Podmioty";
             this.tabPodmioty.UseVisualStyleBackColor = true;
+            // 
+            // btnUsunPodmioty
+            // 
+            this.btnUsunPodmioty.Location = new System.Drawing.Point(152, 9);
+            this.btnUsunPodmioty.Name = "btnUsunPodmioty";
+            this.btnUsunPodmioty.Size = new System.Drawing.Size(66, 48);
+            this.btnUsunPodmioty.TabIndex = 5;
+            this.btnUsunPodmioty.Text = "Usuń";
+            this.btnUsunPodmioty.UseVisualStyleBackColor = true;
+            // 
+            // btnEdytujPodmioty
+            // 
+            this.btnEdytujPodmioty.Location = new System.Drawing.Point(80, 9);
+            this.btnEdytujPodmioty.Name = "btnEdytujPodmioty";
+            this.btnEdytujPodmioty.Size = new System.Drawing.Size(66, 48);
+            this.btnEdytujPodmioty.TabIndex = 4;
+            this.btnEdytujPodmioty.Text = "Edytuj";
+            this.btnEdytujPodmioty.UseVisualStyleBackColor = true;
+            // 
+            // btnDodajPodmioty
+            // 
+            this.btnDodajPodmioty.Location = new System.Drawing.Point(8, 9);
+            this.btnDodajPodmioty.Name = "btnDodajPodmioty";
+            this.btnDodajPodmioty.Size = new System.Drawing.Size(66, 48);
+            this.btnDodajPodmioty.TabIndex = 3;
+            this.btnDodajPodmioty.Text = "Dodaj";
+            this.btnDodajPodmioty.UseVisualStyleBackColor = true;
             // 
             // tabStatusy
             // 
@@ -285,6 +339,33 @@
             this.tabStatusy.Text = "Statusy";
             this.tabStatusy.UseVisualStyleBackColor = true;
             // 
+            // btnUsunStatusy
+            // 
+            this.btnUsunStatusy.Location = new System.Drawing.Point(152, 9);
+            this.btnUsunStatusy.Name = "btnUsunStatusy";
+            this.btnUsunStatusy.Size = new System.Drawing.Size(66, 48);
+            this.btnUsunStatusy.TabIndex = 5;
+            this.btnUsunStatusy.Text = "Usuń";
+            this.btnUsunStatusy.UseVisualStyleBackColor = true;
+            // 
+            // btnEdytujStatusy
+            // 
+            this.btnEdytujStatusy.Location = new System.Drawing.Point(80, 9);
+            this.btnEdytujStatusy.Name = "btnEdytujStatusy";
+            this.btnEdytujStatusy.Size = new System.Drawing.Size(66, 48);
+            this.btnEdytujStatusy.TabIndex = 4;
+            this.btnEdytujStatusy.Text = "Edytuj";
+            this.btnEdytujStatusy.UseVisualStyleBackColor = true;
+            // 
+            // btnDodajStatusy
+            // 
+            this.btnDodajStatusy.Location = new System.Drawing.Point(8, 9);
+            this.btnDodajStatusy.Name = "btnDodajStatusy";
+            this.btnDodajStatusy.Size = new System.Drawing.Size(66, 48);
+            this.btnDodajStatusy.TabIndex = 3;
+            this.btnDodajStatusy.Text = "Dodaj";
+            this.btnDodajStatusy.UseVisualStyleBackColor = true;
+            // 
             // tabUzytkownicy
             // 
             this.tabUzytkownicy.Controls.Add(this.btnUsunUzytk);
@@ -296,6 +377,33 @@
             this.tabUzytkownicy.TabIndex = 6;
             this.tabUzytkownicy.Text = "Użytkownicy";
             this.tabUzytkownicy.UseVisualStyleBackColor = true;
+            // 
+            // btnUsunUzytk
+            // 
+            this.btnUsunUzytk.Location = new System.Drawing.Point(152, 9);
+            this.btnUsunUzytk.Name = "btnUsunUzytk";
+            this.btnUsunUzytk.Size = new System.Drawing.Size(66, 48);
+            this.btnUsunUzytk.TabIndex = 5;
+            this.btnUsunUzytk.Text = "Usuń";
+            this.btnUsunUzytk.UseVisualStyleBackColor = true;
+            // 
+            // btnEdytujUzytk
+            // 
+            this.btnEdytujUzytk.Location = new System.Drawing.Point(80, 9);
+            this.btnEdytujUzytk.Name = "btnEdytujUzytk";
+            this.btnEdytujUzytk.Size = new System.Drawing.Size(66, 48);
+            this.btnEdytujUzytk.TabIndex = 4;
+            this.btnEdytujUzytk.Text = "Edytuj";
+            this.btnEdytujUzytk.UseVisualStyleBackColor = true;
+            // 
+            // btnDodajUzytk
+            // 
+            this.btnDodajUzytk.Location = new System.Drawing.Point(8, 9);
+            this.btnDodajUzytk.Name = "btnDodajUzytk";
+            this.btnDodajUzytk.Size = new System.Drawing.Size(66, 48);
+            this.btnDodajUzytk.TabIndex = 3;
+            this.btnDodajUzytk.Text = "Dodaj";
+            this.btnDodajUzytk.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -434,114 +542,6 @@
             this.Aktywny.HeaderText = "Aktywny";
             this.Aktywny.Name = "Aktywny";
             this.Aktywny.ReadOnly = true;
-            // 
-            // btnUsunProdukty
-            // 
-            this.btnUsunProdukty.Location = new System.Drawing.Point(152, 9);
-            this.btnUsunProdukty.Name = "btnUsunProdukty";
-            this.btnUsunProdukty.Size = new System.Drawing.Size(66, 48);
-            this.btnUsunProdukty.TabIndex = 5;
-            this.btnUsunProdukty.Text = "Usuń";
-            this.btnUsunProdukty.UseVisualStyleBackColor = true;
-            // 
-            // btnEdytujProdukty
-            // 
-            this.btnEdytujProdukty.Location = new System.Drawing.Point(80, 9);
-            this.btnEdytujProdukty.Name = "btnEdytujProdukty";
-            this.btnEdytujProdukty.Size = new System.Drawing.Size(66, 48);
-            this.btnEdytujProdukty.TabIndex = 4;
-            this.btnEdytujProdukty.Text = "Edytuj";
-            this.btnEdytujProdukty.UseVisualStyleBackColor = true;
-            // 
-            // btnDodajProdukty
-            // 
-            this.btnDodajProdukty.Location = new System.Drawing.Point(8, 9);
-            this.btnDodajProdukty.Name = "btnDodajProdukty";
-            this.btnDodajProdukty.Size = new System.Drawing.Size(66, 48);
-            this.btnDodajProdukty.TabIndex = 3;
-            this.btnDodajProdukty.Text = "Dodaj";
-            this.btnDodajProdukty.UseVisualStyleBackColor = true;
-            // 
-            // btnUsunPodmioty
-            // 
-            this.btnUsunPodmioty.Location = new System.Drawing.Point(152, 9);
-            this.btnUsunPodmioty.Name = "btnUsunPodmioty";
-            this.btnUsunPodmioty.Size = new System.Drawing.Size(66, 48);
-            this.btnUsunPodmioty.TabIndex = 5;
-            this.btnUsunPodmioty.Text = "Usuń";
-            this.btnUsunPodmioty.UseVisualStyleBackColor = true;
-            // 
-            // btnEdytujPodmioty
-            // 
-            this.btnEdytujPodmioty.Location = new System.Drawing.Point(80, 9);
-            this.btnEdytujPodmioty.Name = "btnEdytujPodmioty";
-            this.btnEdytujPodmioty.Size = new System.Drawing.Size(66, 48);
-            this.btnEdytujPodmioty.TabIndex = 4;
-            this.btnEdytujPodmioty.Text = "Edytuj";
-            this.btnEdytujPodmioty.UseVisualStyleBackColor = true;
-            // 
-            // btnDodajPodmioty
-            // 
-            this.btnDodajPodmioty.Location = new System.Drawing.Point(8, 9);
-            this.btnDodajPodmioty.Name = "btnDodajPodmioty";
-            this.btnDodajPodmioty.Size = new System.Drawing.Size(66, 48);
-            this.btnDodajPodmioty.TabIndex = 3;
-            this.btnDodajPodmioty.Text = "Dodaj";
-            this.btnDodajPodmioty.UseVisualStyleBackColor = true;
-            // 
-            // btnUsunStatusy
-            // 
-            this.btnUsunStatusy.Location = new System.Drawing.Point(152, 9);
-            this.btnUsunStatusy.Name = "btnUsunStatusy";
-            this.btnUsunStatusy.Size = new System.Drawing.Size(66, 48);
-            this.btnUsunStatusy.TabIndex = 5;
-            this.btnUsunStatusy.Text = "Usuń";
-            this.btnUsunStatusy.UseVisualStyleBackColor = true;
-            // 
-            // btnEdytujStatusy
-            // 
-            this.btnEdytujStatusy.Location = new System.Drawing.Point(80, 9);
-            this.btnEdytujStatusy.Name = "btnEdytujStatusy";
-            this.btnEdytujStatusy.Size = new System.Drawing.Size(66, 48);
-            this.btnEdytujStatusy.TabIndex = 4;
-            this.btnEdytujStatusy.Text = "Edytuj";
-            this.btnEdytujStatusy.UseVisualStyleBackColor = true;
-            // 
-            // btnDodajStatusy
-            // 
-            this.btnDodajStatusy.Location = new System.Drawing.Point(8, 9);
-            this.btnDodajStatusy.Name = "btnDodajStatusy";
-            this.btnDodajStatusy.Size = new System.Drawing.Size(66, 48);
-            this.btnDodajStatusy.TabIndex = 3;
-            this.btnDodajStatusy.Text = "Dodaj";
-            this.btnDodajStatusy.UseVisualStyleBackColor = true;
-            // 
-            // btnUsunUzytk
-            // 
-            this.btnUsunUzytk.Location = new System.Drawing.Point(152, 9);
-            this.btnUsunUzytk.Name = "btnUsunUzytk";
-            this.btnUsunUzytk.Size = new System.Drawing.Size(66, 48);
-            this.btnUsunUzytk.TabIndex = 5;
-            this.btnUsunUzytk.Text = "Usuń";
-            this.btnUsunUzytk.UseVisualStyleBackColor = true;
-            // 
-            // btnEdytujUzytk
-            // 
-            this.btnEdytujUzytk.Location = new System.Drawing.Point(80, 9);
-            this.btnEdytujUzytk.Name = "btnEdytujUzytk";
-            this.btnEdytujUzytk.Size = new System.Drawing.Size(66, 48);
-            this.btnEdytujUzytk.TabIndex = 4;
-            this.btnEdytujUzytk.Text = "Edytuj";
-            this.btnEdytujUzytk.UseVisualStyleBackColor = true;
-            // 
-            // btnDodajUzytk
-            // 
-            this.btnDodajUzytk.Location = new System.Drawing.Point(8, 9);
-            this.btnDodajUzytk.Name = "btnDodajUzytk";
-            this.btnDodajUzytk.Size = new System.Drawing.Size(66, 48);
-            this.btnDodajUzytk.TabIndex = 3;
-            this.btnDodajUzytk.Text = "Dodaj";
-            this.btnDodajUzytk.UseVisualStyleBackColor = true;
             // 
             // OknoGlowne
             // 

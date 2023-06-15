@@ -37,7 +37,14 @@ namespace Piekarnie
                 {
                     this.tabControl1.TabPages.Remove(this.tabPodmioty);
                 }
-              //Co z Statusami i U¿ytkownikami? Mysla³am ¿eby do tego tylko admin mia³ dostêp
+                if (!this.uzytkownik.Status_podglad)
+                {
+                    this.tabControl1.TabPages.Remove(this.tabStatusy);
+                }
+                if (!this.uzytkownik.Uzytkownik_podglad)
+                {
+                    this.tabControl1.TabPages.Remove(this.tabUzytkownicy);
+                }
 
             }
             catch(Exception ex) { Environment.Exit(0); }
