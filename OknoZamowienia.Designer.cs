@@ -35,8 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAnuluj = new System.Windows.Forms.Button();
             this.btnZapisz = new System.Windows.Forms.Button();
+            this.btnAnuluj = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDodaj = new System.Windows.Forms.Button();
@@ -106,23 +106,23 @@
             this.panel1.Size = new System.Drawing.Size(827, 51);
             this.panel1.TabIndex = 6;
             // 
-            // btnAnuluj
-            // 
-            this.btnAnuluj.Location = new System.Drawing.Point(12, 16);
-            this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(75, 23);
-            this.btnAnuluj.TabIndex = 0;
-            this.btnAnuluj.Text = "Anuluj";
-            this.btnAnuluj.UseVisualStyleBackColor = true;
-            // 
             // btnZapisz
             // 
             this.btnZapisz.Location = new System.Drawing.Point(740, 16);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(75, 23);
-            this.btnZapisz.TabIndex = 1;
+            this.btnZapisz.TabIndex = 8;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
+            // 
+            // btnAnuluj
+            // 
+            this.btnAnuluj.Location = new System.Drawing.Point(12, 16);
+            this.btnAnuluj.Name = "btnAnuluj";
+            this.btnAnuluj.Size = new System.Drawing.Size(75, 23);
+            this.btnAnuluj.TabIndex = 7;
+            this.btnAnuluj.Text = "Anuluj";
+            this.btnAnuluj.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -147,7 +147,7 @@
             this.btnDodaj.Location = new System.Drawing.Point(113, 364);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(75, 23);
-            this.btnDodaj.TabIndex = 9;
+            this.btnDodaj.TabIndex = 4;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
             // 
@@ -156,7 +156,7 @@
             this.btnEdytuj.Location = new System.Drawing.Point(194, 364);
             this.btnEdytuj.Name = "btnEdytuj";
             this.btnEdytuj.Size = new System.Drawing.Size(75, 23);
-            this.btnEdytuj.TabIndex = 10;
+            this.btnEdytuj.TabIndex = 5;
             this.btnEdytuj.Text = "Edytuj";
             this.btnEdytuj.UseVisualStyleBackColor = true;
             // 
@@ -165,7 +165,7 @@
             this.btnUsun.Location = new System.Drawing.Point(275, 364);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(75, 23);
-            this.btnUsun.TabIndex = 11;
+            this.btnUsun.TabIndex = 6;
             this.btnUsun.Text = "Usuń";
             this.btnUsun.UseVisualStyleBackColor = true;
             // 

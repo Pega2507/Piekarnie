@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAnuluj = new System.Windows.Forms.Button();
             this.btnZapisz = new System.Windows.Forms.Button();
+            this.btnAnuluj = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.inpLogin = new System.Windows.Forms.TextBox();
             this.inpImie = new System.Windows.Forms.TextBox();
             this.inpNazwisko = new System.Windows.Forms.TextBox();
             this.inpHaslo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.inpPodmiotEdycja = new System.Windows.Forms.CheckBox();
+            this.inpPodmiotPodglad = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.inpMagEdycja = new System.Windows.Forms.CheckBox();
+            this.inpMagPodglad = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.inpProdEdycja = new System.Windows.Forms.CheckBox();
+            this.inpProdPodglad = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.inpZamEdycja = new System.Windows.Forms.CheckBox();
+            this.inpZamPodglad = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.inpHaslo2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.inpAktywny = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.inpZamPodglad = new System.Windows.Forms.CheckBox();
-            this.inpZamEdycja = new System.Windows.Forms.CheckBox();
-            this.inpProdEdycja = new System.Windows.Forms.CheckBox();
-            this.inpProdPodglad = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.inpMagEdycja = new System.Windows.Forms.CheckBox();
-            this.inpMagPodglad = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.inpPodmiotEdycja = new System.Windows.Forms.CheckBox();
-            this.inpPodmiotPodglad = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -71,23 +71,23 @@
             this.panel1.Size = new System.Drawing.Size(415, 46);
             this.panel1.TabIndex = 0;
             // 
-            // btnAnuluj
-            // 
-            this.btnAnuluj.Location = new System.Drawing.Point(12, 11);
-            this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(75, 23);
-            this.btnAnuluj.TabIndex = 0;
-            this.btnAnuluj.Text = "Anuluj";
-            this.btnAnuluj.UseVisualStyleBackColor = true;
-            // 
             // btnZapisz
             // 
             this.btnZapisz.Location = new System.Drawing.Point(328, 11);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(75, 23);
-            this.btnZapisz.TabIndex = 1;
+            this.btnZapisz.TabIndex = 18;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
+            // 
+            // btnAnuluj
+            // 
+            this.btnAnuluj.Location = new System.Drawing.Point(12, 11);
+            this.btnAnuluj.Name = "btnAnuluj";
+            this.btnAnuluj.Size = new System.Drawing.Size(75, 23);
+            this.btnAnuluj.TabIndex = 17;
+            this.btnAnuluj.Text = "Anuluj";
+            this.btnAnuluj.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -150,6 +150,139 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Uprawnienia";
             // 
+            // inpPodmiotEdycja
+            // 
+            this.inpPodmiotEdycja.AutoSize = true;
+            this.inpPodmiotEdycja.Location = new System.Drawing.Point(246, 126);
+            this.inpPodmiotEdycja.Name = "inpPodmiotEdycja";
+            this.inpPodmiotEdycja.Size = new System.Drawing.Size(60, 19);
+            this.inpPodmiotEdycja.TabIndex = 16;
+            this.inpPodmiotEdycja.Text = "edycja";
+            this.inpPodmiotEdycja.UseVisualStyleBackColor = true;
+            // 
+            // inpPodmiotPodglad
+            // 
+            this.inpPodmiotPodglad.AutoSize = true;
+            this.inpPodmiotPodglad.Location = new System.Drawing.Point(105, 126);
+            this.inpPodmiotPodglad.Name = "inpPodmiotPodglad";
+            this.inpPodmiotPodglad.Size = new System.Drawing.Size(70, 19);
+            this.inpPodmiotPodglad.TabIndex = 15;
+            this.inpPodmiotPodglad.Text = "podgląd";
+            this.inpPodmiotPodglad.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(43, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 15);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Podmiot:";
+            // 
+            // inpMagEdycja
+            // 
+            this.inpMagEdycja.AutoSize = true;
+            this.inpMagEdycja.Location = new System.Drawing.Point(246, 101);
+            this.inpMagEdycja.Name = "inpMagEdycja";
+            this.inpMagEdycja.Size = new System.Drawing.Size(60, 19);
+            this.inpMagEdycja.TabIndex = 14;
+            this.inpMagEdycja.Text = "edycja";
+            this.inpMagEdycja.UseVisualStyleBackColor = true;
+            // 
+            // inpMagPodglad
+            // 
+            this.inpMagPodglad.AutoSize = true;
+            this.inpMagPodglad.Location = new System.Drawing.Point(105, 101);
+            this.inpMagPodglad.Name = "inpMagPodglad";
+            this.inpMagPodglad.Size = new System.Drawing.Size(70, 19);
+            this.inpMagPodglad.TabIndex = 13;
+            this.inpMagPodglad.Text = "podgląd";
+            this.inpMagPodglad.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(41, 101);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 15);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Magazyn:";
+            // 
+            // inpProdEdycja
+            // 
+            this.inpProdEdycja.AutoSize = true;
+            this.inpProdEdycja.Location = new System.Drawing.Point(246, 76);
+            this.inpProdEdycja.Name = "inpProdEdycja";
+            this.inpProdEdycja.Size = new System.Drawing.Size(60, 19);
+            this.inpProdEdycja.TabIndex = 12;
+            this.inpProdEdycja.Text = "edycja";
+            this.inpProdEdycja.UseVisualStyleBackColor = true;
+            // 
+            // inpProdPodglad
+            // 
+            this.inpProdPodglad.AutoSize = true;
+            this.inpProdPodglad.Location = new System.Drawing.Point(105, 76);
+            this.inpProdPodglad.Name = "inpProdPodglad";
+            this.inpProdPodglad.Size = new System.Drawing.Size(70, 19);
+            this.inpProdPodglad.TabIndex = 11;
+            this.inpProdPodglad.Text = "podgląd";
+            this.inpProdPodglad.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(41, 76);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 15);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Produkty:";
+            // 
+            // inpZamEdycja
+            // 
+            this.inpZamEdycja.AutoSize = true;
+            this.inpZamEdycja.Location = new System.Drawing.Point(246, 51);
+            this.inpZamEdycja.Name = "inpZamEdycja";
+            this.inpZamEdycja.Size = new System.Drawing.Size(60, 19);
+            this.inpZamEdycja.TabIndex = 10;
+            this.inpZamEdycja.Text = "edycja";
+            this.inpZamEdycja.UseVisualStyleBackColor = true;
+            // 
+            // inpZamPodglad
+            // 
+            this.inpZamPodglad.AutoSize = true;
+            this.inpZamPodglad.Location = new System.Drawing.Point(105, 51);
+            this.inpZamPodglad.Name = "inpZamPodglad";
+            this.inpZamPodglad.Size = new System.Drawing.Size(70, 19);
+            this.inpZamPodglad.TabIndex = 9;
+            this.inpZamPodglad.Text = "podgląd";
+            this.inpZamPodglad.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 15);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Zamówienia:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(41, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 15);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Magazyn:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(105, 22);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(280, 23);
+            this.comboBox1.TabIndex = 8;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -183,7 +316,7 @@
             this.inpHaslo2.Name = "inpHaslo2";
             this.inpHaslo2.PasswordChar = '*';
             this.inpHaslo2.Size = new System.Drawing.Size(286, 23);
-            this.inpHaslo2.TabIndex = 10;
+            this.inpHaslo2.TabIndex = 6;
             // 
             // label5
             // 
@@ -194,148 +327,15 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Powtórz hasło:";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(105, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(280, 23);
-            this.comboBox1.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 15);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Magazyn:";
-            // 
             // inpAktywny
             // 
             this.inpAktywny.AutoSize = true;
             this.inpAktywny.Location = new System.Drawing.Point(117, 169);
             this.inpAktywny.Name = "inpAktywny";
             this.inpAktywny.Size = new System.Drawing.Size(72, 19);
-            this.inpAktywny.TabIndex = 12;
+            this.inpAktywny.TabIndex = 7;
             this.inpAktywny.Text = "Aktywny";
             this.inpAktywny.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 15);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Zamówienia:";
-            // 
-            // inpZamPodglad
-            // 
-            this.inpZamPodglad.AutoSize = true;
-            this.inpZamPodglad.Location = new System.Drawing.Point(105, 51);
-            this.inpZamPodglad.Name = "inpZamPodglad";
-            this.inpZamPodglad.Size = new System.Drawing.Size(70, 19);
-            this.inpZamPodglad.TabIndex = 3;
-            this.inpZamPodglad.Text = "podgląd";
-            this.inpZamPodglad.UseVisualStyleBackColor = true;
-            // 
-            // inpZamEdycja
-            // 
-            this.inpZamEdycja.AutoSize = true;
-            this.inpZamEdycja.Location = new System.Drawing.Point(246, 51);
-            this.inpZamEdycja.Name = "inpZamEdycja";
-            this.inpZamEdycja.Size = new System.Drawing.Size(60, 19);
-            this.inpZamEdycja.TabIndex = 4;
-            this.inpZamEdycja.Text = "edycja";
-            this.inpZamEdycja.UseVisualStyleBackColor = true;
-            // 
-            // inpProdEdycja
-            // 
-            this.inpProdEdycja.AutoSize = true;
-            this.inpProdEdycja.Location = new System.Drawing.Point(246, 76);
-            this.inpProdEdycja.Name = "inpProdEdycja";
-            this.inpProdEdycja.Size = new System.Drawing.Size(60, 19);
-            this.inpProdEdycja.TabIndex = 7;
-            this.inpProdEdycja.Text = "edycja";
-            this.inpProdEdycja.UseVisualStyleBackColor = true;
-            // 
-            // inpProdPodglad
-            // 
-            this.inpProdPodglad.AutoSize = true;
-            this.inpProdPodglad.Location = new System.Drawing.Point(105, 76);
-            this.inpProdPodglad.Name = "inpProdPodglad";
-            this.inpProdPodglad.Size = new System.Drawing.Size(70, 19);
-            this.inpProdPodglad.TabIndex = 6;
-            this.inpProdPodglad.Text = "podgląd";
-            this.inpProdPodglad.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(41, 76);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 15);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Produkty:";
-            // 
-            // inpMagEdycja
-            // 
-            this.inpMagEdycja.AutoSize = true;
-            this.inpMagEdycja.Location = new System.Drawing.Point(246, 101);
-            this.inpMagEdycja.Name = "inpMagEdycja";
-            this.inpMagEdycja.Size = new System.Drawing.Size(60, 19);
-            this.inpMagEdycja.TabIndex = 10;
-            this.inpMagEdycja.Text = "edycja";
-            this.inpMagEdycja.UseVisualStyleBackColor = true;
-            // 
-            // inpMagPodglad
-            // 
-            this.inpMagPodglad.AutoSize = true;
-            this.inpMagPodglad.Location = new System.Drawing.Point(105, 101);
-            this.inpMagPodglad.Name = "inpMagPodglad";
-            this.inpMagPodglad.Size = new System.Drawing.Size(70, 19);
-            this.inpMagPodglad.TabIndex = 9;
-            this.inpMagPodglad.Text = "podgląd";
-            this.inpMagPodglad.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(41, 101);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 15);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Magazyn:";
-            // 
-            // inpPodmiotEdycja
-            // 
-            this.inpPodmiotEdycja.AutoSize = true;
-            this.inpPodmiotEdycja.Location = new System.Drawing.Point(246, 126);
-            this.inpPodmiotEdycja.Name = "inpPodmiotEdycja";
-            this.inpPodmiotEdycja.Size = new System.Drawing.Size(60, 19);
-            this.inpPodmiotEdycja.TabIndex = 13;
-            this.inpPodmiotEdycja.Text = "edycja";
-            this.inpPodmiotEdycja.UseVisualStyleBackColor = true;
-            // 
-            // inpPodmiotPodglad
-            // 
-            this.inpPodmiotPodglad.AutoSize = true;
-            this.inpPodmiotPodglad.Location = new System.Drawing.Point(105, 126);
-            this.inpPodmiotPodglad.Name = "inpPodmiotPodglad";
-            this.inpPodmiotPodglad.Size = new System.Drawing.Size(70, 19);
-            this.inpPodmiotPodglad.TabIndex = 12;
-            this.inpPodmiotPodglad.Text = "podgląd";
-            this.inpPodmiotPodglad.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(43, 127);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 15);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Podmiot:";
             // 
             // OknoUzytkownika
             // 

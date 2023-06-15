@@ -25,6 +25,19 @@ namespace Piekarnie
                     if(this.uzytkownik.MagazynId>0)
                         this.tabControl1.TabPages.Remove(this.tabZamowieniaDoDostawcow);
                 }
+                if (!this.uzytkownik.Produkty_podglad)
+                {
+                    this.tabControl1.TabPages.Remove(this.tabProdukty);   
+                }
+                if (!this.uzytkownik.Magazyn_podglad)
+                {
+                    this.tabControl1.TabPages.Remove(this.tabMagazyny);
+                }
+                if (!this.uzytkownik.Podmiot_podglad)
+                {
+                    this.tabControl1.TabPages.Remove(this.tabPodmioty);
+                }
+              //Co z Statusami i U¿ytkownikami? Mysla³am ¿eby do tego tylko admin mia³ dostêp
 
             }
             catch(Exception ex) { Environment.Exit(0); }
@@ -40,6 +53,31 @@ namespace Piekarnie
             {
                 tabControl2.SelectedTab = this.tabUzytkownikTab;
             }
+            else if (tabControl1.SelectedTab == tabMagazyny)
+            {
+                tabControl2.SelectedTab = this.tabMagazynTab;
+            }
+            else if (tabControl1.SelectedTab == tabPodmioty)
+            {
+                tabControl2.SelectedTab = this.tabPodmiotyTab;
+            }
+            else if (tabControl1.SelectedTab == tabProdukty)
+            {
+                tabControl2.SelectedTab = this.tabProduktyTab;
+            }
+            else if (tabControl1.SelectedTab == tabStatusy)
+            {
+                tabControl2.SelectedTab = this.tabStatusyTab;
+            }
+            else if (tabControl1.SelectedTab == tabZamowieniaDoDostawcow)
+            {
+                tabControl2.SelectedTab = this.tabZamowieniaDoDostawcowTab;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

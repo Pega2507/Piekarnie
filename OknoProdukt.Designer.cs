@@ -33,8 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAnuluj = new System.Windows.Forms.Button();
             this.btnZapisz = new System.Windows.Forms.Button();
+            this.btnAnuluj = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,14 +43,14 @@
             this.inpNazwa.Location = new System.Drawing.Point(90, 12);
             this.inpNazwa.Name = "inpNazwa";
             this.inpNazwa.Size = new System.Drawing.Size(261, 23);
-            this.inpNazwa.TabIndex = 0;
+            this.inpNazwa.TabIndex = 1;
             // 
             // inpOpis
             // 
             this.inpOpis.Location = new System.Drawing.Point(90, 41);
             this.inpOpis.Name = "inpOpis";
             this.inpOpis.Size = new System.Drawing.Size(261, 170);
-            this.inpOpis.TabIndex = 1;
+            this.inpOpis.TabIndex = 2;
             this.inpOpis.Text = "";
             // 
             // label1
@@ -81,23 +81,23 @@
             this.panel1.Size = new System.Drawing.Size(375, 52);
             this.panel1.TabIndex = 4;
             // 
-            // btnAnuluj
-            // 
-            this.btnAnuluj.Location = new System.Drawing.Point(12, 17);
-            this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(75, 23);
-            this.btnAnuluj.TabIndex = 0;
-            this.btnAnuluj.Text = "Anuluj";
-            this.btnAnuluj.UseVisualStyleBackColor = true;
-            // 
             // btnZapisz
             // 
             this.btnZapisz.Location = new System.Drawing.Point(288, 17);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(75, 23);
-            this.btnZapisz.TabIndex = 1;
+            this.btnZapisz.TabIndex = 4;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
+            // 
+            // btnAnuluj
+            // 
+            this.btnAnuluj.Location = new System.Drawing.Point(12, 17);
+            this.btnAnuluj.Name = "btnAnuluj";
+            this.btnAnuluj.Size = new System.Drawing.Size(75, 23);
+            this.btnAnuluj.TabIndex = 3;
+            this.btnAnuluj.Text = "Anuluj";
+            this.btnAnuluj.UseVisualStyleBackColor = true;
             // 
             // OknoProdukt
             // 
