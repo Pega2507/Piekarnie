@@ -55,9 +55,6 @@
             // inpTyp
             // 
             this.inpTyp.FormattingEnabled = true;
-            this.inpTyp.Items.AddRange(new object[] {
-            "Piekarnia",
-            "Dostawca"});
             this.inpTyp.Location = new System.Drawing.Point(98, 24);
             this.inpTyp.Name = "inpTyp";
             this.inpTyp.Size = new System.Drawing.Size(326, 23);

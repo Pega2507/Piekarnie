@@ -78,7 +78,7 @@ namespace Piekarnie
 
             if (this.inpImie.Text.Trim().Length == 0)
             {
-                if (MessageBox.Show("Wypełnij pole Imien", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show("Wypełnij pole Imie", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
                     this.inpImie.Focus();
             }
 

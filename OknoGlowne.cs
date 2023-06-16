@@ -141,5 +141,14 @@ namespace Piekarnie
                 this.dataGridViewZamowienia.Refresh();
             }
         }
+
+        private void btnDodajProdukty_Click(object sender, EventArgs e)
+        {
+            OknoProdukt produkt = new OknoProdukt(this.db);
+            if (produkt.ShowDialog() == DialogResult.OK)
+            {
+                this.dataGridViewProdukty.Refresh();
+            }
+        }
     }
 }

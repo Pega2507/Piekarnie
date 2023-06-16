@@ -10,7 +10,7 @@ namespace Piekarnie
 {
     public class Podmiot
     {
-        private Int32 Id = 0;
+        public Int32 Id = 0;
         public String Nazwa = "";
         public String Adres = "";
         public String Telefon = "";

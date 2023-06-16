@@ -10,7 +10,7 @@ namespace Piekarnie
 {
     public class Produkt
     {
-        private Int32 Id = 0;
+        public Int32 Id = 0;
         public String Nazwa = "";
         public String Opis = "";
         
