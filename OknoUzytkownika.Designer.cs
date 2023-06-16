@@ -28,347 +28,406 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnZapisz = new System.Windows.Forms.Button();
-            this.btnAnuluj = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.inpLogin = new System.Windows.Forms.TextBox();
-            this.inpImie = new System.Windows.Forms.TextBox();
-            this.inpNazwisko = new System.Windows.Forms.TextBox();
-            this.inpHaslo = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.inpPodmiotEdycja = new System.Windows.Forms.CheckBox();
-            this.inpPodmiotPodglad = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.inpMagEdycja = new System.Windows.Forms.CheckBox();
-            this.inpMagPodglad = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.inpProdEdycja = new System.Windows.Forms.CheckBox();
-            this.inpProdPodglad = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.inpZamEdycja = new System.Windows.Forms.CheckBox();
-            this.inpZamPodglad = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.inpHaslo2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.inpAktywny = new System.Windows.Forms.CheckBox();
-            this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            btnZapisz = new Button();
+            btnAnuluj = new Button();
+            label1 = new Label();
+            inpLogin = new TextBox();
+            inpImie = new TextBox();
+            inpNazwisko = new TextBox();
+            inpHaslo = new TextBox();
+            groupBox1 = new GroupBox();
+            inpHistoriaPodglad = new CheckBox();
+            label12 = new Label();
+            inpUzytkownikEytuj = new CheckBox();
+            inpUzytkownikPodglad = new CheckBox();
+            label11 = new Label();
+            inpPodmiotEdycja = new CheckBox();
+            inpPodmiotPodglad = new CheckBox();
+            label10 = new Label();
+            inpMagEdycja = new CheckBox();
+            inpMagPodglad = new CheckBox();
+            label9 = new Label();
+            inpProdEdycja = new CheckBox();
+            inpProdPodglad = new CheckBox();
+            label8 = new Label();
+            inpZamEdycja = new CheckBox();
+            inpZamPodglad = new CheckBox();
+            label7 = new Label();
+            label6 = new Label();
+            inpMagazyn = new ComboBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            inpHaslo2 = new TextBox();
+            label5 = new Label();
+            inpAktywny = new CheckBox();
+            panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnZapisz);
-            this.panel1.Controls.Add(this.btnAnuluj);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 365);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(415, 46);
-            this.panel1.TabIndex = 0;
+            panel1.Controls.Add(btnZapisz);
+            panel1.Controls.Add(btnAnuluj);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 399);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(415, 46);
+            panel1.TabIndex = 0;
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(328, 11);
-            this.btnZapisz.Name = "btnZapisz";
-            this.btnZapisz.Size = new System.Drawing.Size(75, 23);
-            this.btnZapisz.TabIndex = 18;
-            this.btnZapisz.Text = "Zapisz";
-            this.btnZapisz.UseVisualStyleBackColor = true;
+            btnZapisz.Location = new Point(328, 11);
+            btnZapisz.Name = "btnZapisz";
+            btnZapisz.Size = new Size(75, 23);
+            btnZapisz.TabIndex = 18;
+            btnZapisz.Text = "Zapisz";
+            btnZapisz.UseVisualStyleBackColor = true;
+            btnZapisz.Click += btnZapisz_Click;
             // 
             // btnAnuluj
             // 
-            this.btnAnuluj.Location = new System.Drawing.Point(12, 11);
-            this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(75, 23);
-            this.btnAnuluj.TabIndex = 17;
-            this.btnAnuluj.Text = "Anuluj";
-            this.btnAnuluj.UseVisualStyleBackColor = true;
+            btnAnuluj.Location = new Point(12, 11);
+            btnAnuluj.Name = "btnAnuluj";
+            btnAnuluj.Size = new Size(75, 23);
+            btnAnuluj.TabIndex = 17;
+            btnAnuluj.Text = "Anuluj";
+            btnAnuluj.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Login:";
+            label1.AutoSize = true;
+            label1.Location = new Point(71, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(40, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Login:";
             // 
             // inpLogin
             // 
-            this.inpLogin.Location = new System.Drawing.Point(117, 19);
-            this.inpLogin.Name = "inpLogin";
-            this.inpLogin.Size = new System.Drawing.Size(286, 23);
-            this.inpLogin.TabIndex = 2;
+            inpLogin.Location = new Point(117, 19);
+            inpLogin.Name = "inpLogin";
+            inpLogin.Size = new Size(286, 23);
+            inpLogin.TabIndex = 2;
             // 
             // inpImie
             // 
-            this.inpImie.Location = new System.Drawing.Point(117, 48);
-            this.inpImie.Name = "inpImie";
-            this.inpImie.Size = new System.Drawing.Size(286, 23);
-            this.inpImie.TabIndex = 3;
+            inpImie.Location = new Point(117, 48);
+            inpImie.Name = "inpImie";
+            inpImie.Size = new Size(286, 23);
+            inpImie.TabIndex = 3;
             // 
             // inpNazwisko
             // 
-            this.inpNazwisko.Location = new System.Drawing.Point(117, 77);
-            this.inpNazwisko.Name = "inpNazwisko";
-            this.inpNazwisko.Size = new System.Drawing.Size(286, 23);
-            this.inpNazwisko.TabIndex = 4;
+            inpNazwisko.Location = new Point(117, 77);
+            inpNazwisko.Name = "inpNazwisko";
+            inpNazwisko.Size = new Size(286, 23);
+            inpNazwisko.TabIndex = 4;
             // 
             // inpHaslo
             // 
-            this.inpHaslo.Location = new System.Drawing.Point(117, 106);
-            this.inpHaslo.Name = "inpHaslo";
-            this.inpHaslo.PasswordChar = '*';
-            this.inpHaslo.Size = new System.Drawing.Size(286, 23);
-            this.inpHaslo.TabIndex = 5;
+            inpHaslo.Location = new Point(117, 106);
+            inpHaslo.Name = "inpHaslo";
+            inpHaslo.PasswordChar = '*';
+            inpHaslo.Size = new Size(286, 23);
+            inpHaslo.TabIndex = 5;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.inpPodmiotEdycja);
-            this.groupBox1.Controls.Add(this.inpPodmiotPodglad);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.inpMagEdycja);
-            this.groupBox1.Controls.Add(this.inpMagPodglad);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.inpProdEdycja);
-            this.groupBox1.Controls.Add(this.inpProdPodglad);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.inpZamEdycja);
-            this.groupBox1.Controls.Add(this.inpZamPodglad);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 194);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 165);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Uprawnienia";
+            groupBox1.Controls.Add(inpHistoriaPodglad);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(inpUzytkownikEytuj);
+            groupBox1.Controls.Add(inpUzytkownikPodglad);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(inpPodmiotEdycja);
+            groupBox1.Controls.Add(inpPodmiotPodglad);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(inpMagEdycja);
+            groupBox1.Controls.Add(inpMagPodglad);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(inpProdEdycja);
+            groupBox1.Controls.Add(inpProdPodglad);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(inpZamEdycja);
+            groupBox1.Controls.Add(inpZamPodglad);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(inpMagazyn);
+            groupBox1.Location = new Point(12, 194);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(391, 199);
+            groupBox1.TabIndex = 6;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Uprawnienia";
+            // 
+            // inpHistoriaPodglad
+            // 
+            inpHistoriaPodglad.AutoSize = true;
+            inpHistoriaPodglad.Location = new Point(105, 176);
+            inpHistoriaPodglad.Name = "inpHistoriaPodglad";
+            inpHistoriaPodglad.Size = new Size(70, 19);
+            inpHistoriaPodglad.TabIndex = 21;
+            inpHistoriaPodglad.Text = "podgląd";
+            inpHistoriaPodglad.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(43, 177);
+            label12.Name = "label12";
+            label12.Size = new Size(51, 15);
+            label12.TabIndex = 20;
+            label12.Text = "Historia:";
+            // 
+            // inpUzytkownikEytuj
+            // 
+            inpUzytkownikEytuj.AutoSize = true;
+            inpUzytkownikEytuj.Location = new Point(246, 151);
+            inpUzytkownikEytuj.Name = "inpUzytkownikEytuj";
+            inpUzytkownikEytuj.Size = new Size(60, 19);
+            inpUzytkownikEytuj.TabIndex = 19;
+            inpUzytkownikEytuj.Text = "edycja";
+            inpUzytkownikEytuj.UseVisualStyleBackColor = true;
+            // 
+            // inpUzytkownikPodglad
+            // 
+            inpUzytkownikPodglad.AutoSize = true;
+            inpUzytkownikPodglad.Location = new Point(105, 151);
+            inpUzytkownikPodglad.Name = "inpUzytkownikPodglad";
+            inpUzytkownikPodglad.Size = new Size(70, 19);
+            inpUzytkownikPodglad.TabIndex = 18;
+            inpUzytkownikPodglad.Text = "podgląd";
+            inpUzytkownikPodglad.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(28, 152);
+            label11.Name = "label11";
+            label11.Size = new Size(71, 15);
+            label11.TabIndex = 17;
+            label11.Text = "Użytkownik:";
             // 
             // inpPodmiotEdycja
             // 
-            this.inpPodmiotEdycja.AutoSize = true;
-            this.inpPodmiotEdycja.Location = new System.Drawing.Point(246, 126);
-            this.inpPodmiotEdycja.Name = "inpPodmiotEdycja";
-            this.inpPodmiotEdycja.Size = new System.Drawing.Size(60, 19);
-            this.inpPodmiotEdycja.TabIndex = 16;
-            this.inpPodmiotEdycja.Text = "edycja";
-            this.inpPodmiotEdycja.UseVisualStyleBackColor = true;
+            inpPodmiotEdycja.AutoSize = true;
+            inpPodmiotEdycja.Location = new Point(246, 126);
+            inpPodmiotEdycja.Name = "inpPodmiotEdycja";
+            inpPodmiotEdycja.Size = new Size(60, 19);
+            inpPodmiotEdycja.TabIndex = 16;
+            inpPodmiotEdycja.Text = "edycja";
+            inpPodmiotEdycja.UseVisualStyleBackColor = true;
             // 
             // inpPodmiotPodglad
             // 
-            this.inpPodmiotPodglad.AutoSize = true;
-            this.inpPodmiotPodglad.Location = new System.Drawing.Point(105, 126);
-            this.inpPodmiotPodglad.Name = "inpPodmiotPodglad";
-            this.inpPodmiotPodglad.Size = new System.Drawing.Size(70, 19);
-            this.inpPodmiotPodglad.TabIndex = 15;
-            this.inpPodmiotPodglad.Text = "podgląd";
-            this.inpPodmiotPodglad.UseVisualStyleBackColor = true;
+            inpPodmiotPodglad.AutoSize = true;
+            inpPodmiotPodglad.Location = new Point(105, 126);
+            inpPodmiotPodglad.Name = "inpPodmiotPodglad";
+            inpPodmiotPodglad.Size = new Size(70, 19);
+            inpPodmiotPodglad.TabIndex = 15;
+            inpPodmiotPodglad.Text = "podgląd";
+            inpPodmiotPodglad.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(43, 127);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 15);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Podmiot:";
+            label10.AutoSize = true;
+            label10.Location = new Point(43, 127);
+            label10.Name = "label10";
+            label10.Size = new Size(56, 15);
+            label10.TabIndex = 11;
+            label10.Text = "Podmiot:";
             // 
             // inpMagEdycja
             // 
-            this.inpMagEdycja.AutoSize = true;
-            this.inpMagEdycja.Location = new System.Drawing.Point(246, 101);
-            this.inpMagEdycja.Name = "inpMagEdycja";
-            this.inpMagEdycja.Size = new System.Drawing.Size(60, 19);
-            this.inpMagEdycja.TabIndex = 14;
-            this.inpMagEdycja.Text = "edycja";
-            this.inpMagEdycja.UseVisualStyleBackColor = true;
+            inpMagEdycja.AutoSize = true;
+            inpMagEdycja.Location = new Point(246, 101);
+            inpMagEdycja.Name = "inpMagEdycja";
+            inpMagEdycja.Size = new Size(60, 19);
+            inpMagEdycja.TabIndex = 14;
+            inpMagEdycja.Text = "edycja";
+            inpMagEdycja.UseVisualStyleBackColor = true;
             // 
             // inpMagPodglad
             // 
-            this.inpMagPodglad.AutoSize = true;
-            this.inpMagPodglad.Location = new System.Drawing.Point(105, 101);
-            this.inpMagPodglad.Name = "inpMagPodglad";
-            this.inpMagPodglad.Size = new System.Drawing.Size(70, 19);
-            this.inpMagPodglad.TabIndex = 13;
-            this.inpMagPodglad.Text = "podgląd";
-            this.inpMagPodglad.UseVisualStyleBackColor = true;
+            inpMagPodglad.AutoSize = true;
+            inpMagPodglad.Location = new Point(105, 101);
+            inpMagPodglad.Name = "inpMagPodglad";
+            inpMagPodglad.Size = new Size(70, 19);
+            inpMagPodglad.TabIndex = 13;
+            inpMagPodglad.Text = "podgląd";
+            inpMagPodglad.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(41, 101);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 15);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Magazyn:";
+            label9.AutoSize = true;
+            label9.Location = new Point(41, 101);
+            label9.Name = "label9";
+            label9.Size = new Size(58, 15);
+            label9.TabIndex = 8;
+            label9.Text = "Magazyn:";
             // 
             // inpProdEdycja
             // 
-            this.inpProdEdycja.AutoSize = true;
-            this.inpProdEdycja.Location = new System.Drawing.Point(246, 76);
-            this.inpProdEdycja.Name = "inpProdEdycja";
-            this.inpProdEdycja.Size = new System.Drawing.Size(60, 19);
-            this.inpProdEdycja.TabIndex = 12;
-            this.inpProdEdycja.Text = "edycja";
-            this.inpProdEdycja.UseVisualStyleBackColor = true;
+            inpProdEdycja.AutoSize = true;
+            inpProdEdycja.Location = new Point(246, 76);
+            inpProdEdycja.Name = "inpProdEdycja";
+            inpProdEdycja.Size = new Size(60, 19);
+            inpProdEdycja.TabIndex = 12;
+            inpProdEdycja.Text = "edycja";
+            inpProdEdycja.UseVisualStyleBackColor = true;
             // 
             // inpProdPodglad
             // 
-            this.inpProdPodglad.AutoSize = true;
-            this.inpProdPodglad.Location = new System.Drawing.Point(105, 76);
-            this.inpProdPodglad.Name = "inpProdPodglad";
-            this.inpProdPodglad.Size = new System.Drawing.Size(70, 19);
-            this.inpProdPodglad.TabIndex = 11;
-            this.inpProdPodglad.Text = "podgląd";
-            this.inpProdPodglad.UseVisualStyleBackColor = true;
+            inpProdPodglad.AutoSize = true;
+            inpProdPodglad.Location = new Point(105, 76);
+            inpProdPodglad.Name = "inpProdPodglad";
+            inpProdPodglad.Size = new Size(70, 19);
+            inpProdPodglad.TabIndex = 11;
+            inpProdPodglad.Text = "podgląd";
+            inpProdPodglad.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(41, 76);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 15);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Produkty:";
+            label8.AutoSize = true;
+            label8.Location = new Point(41, 76);
+            label8.Name = "label8";
+            label8.Size = new Size(58, 15);
+            label8.TabIndex = 5;
+            label8.Text = "Produkty:";
             // 
             // inpZamEdycja
             // 
-            this.inpZamEdycja.AutoSize = true;
-            this.inpZamEdycja.Location = new System.Drawing.Point(246, 51);
-            this.inpZamEdycja.Name = "inpZamEdycja";
-            this.inpZamEdycja.Size = new System.Drawing.Size(60, 19);
-            this.inpZamEdycja.TabIndex = 10;
-            this.inpZamEdycja.Text = "edycja";
-            this.inpZamEdycja.UseVisualStyleBackColor = true;
+            inpZamEdycja.AutoSize = true;
+            inpZamEdycja.Location = new Point(246, 51);
+            inpZamEdycja.Name = "inpZamEdycja";
+            inpZamEdycja.Size = new Size(60, 19);
+            inpZamEdycja.TabIndex = 10;
+            inpZamEdycja.Text = "edycja";
+            inpZamEdycja.UseVisualStyleBackColor = true;
             // 
             // inpZamPodglad
             // 
-            this.inpZamPodglad.AutoSize = true;
-            this.inpZamPodglad.Location = new System.Drawing.Point(105, 51);
-            this.inpZamPodglad.Name = "inpZamPodglad";
-            this.inpZamPodglad.Size = new System.Drawing.Size(70, 19);
-            this.inpZamPodglad.TabIndex = 9;
-            this.inpZamPodglad.Text = "podgląd";
-            this.inpZamPodglad.UseVisualStyleBackColor = true;
+            inpZamPodglad.AutoSize = true;
+            inpZamPodglad.Location = new Point(105, 51);
+            inpZamPodglad.Name = "inpZamPodglad";
+            inpZamPodglad.Size = new Size(70, 19);
+            inpZamPodglad.TabIndex = 9;
+            inpZamPodglad.Text = "podgląd";
+            inpZamPodglad.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 15);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Zamówienia:";
+            label7.AutoSize = true;
+            label7.Location = new Point(24, 52);
+            label7.Name = "label7";
+            label7.Size = new Size(75, 15);
+            label7.TabIndex = 2;
+            label7.Text = "Zamówienia:";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 15);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Magazyn:";
+            label6.AutoSize = true;
+            label6.Location = new Point(41, 25);
+            label6.Name = "label6";
+            label6.Size = new Size(58, 15);
+            label6.TabIndex = 1;
+            label6.Text = "Magazyn:";
             // 
-            // comboBox1
+            // inpMagazyn
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(105, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(280, 23);
-            this.comboBox1.TabIndex = 8;
+            inpMagazyn.FormattingEnabled = true;
+            inpMagazyn.Location = new Point(105, 22);
+            inpMagazyn.Name = "inpMagazyn";
+            inpMagazyn.Size = new Size(280, 23);
+            inpMagazyn.TabIndex = 8;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(78, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 15);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Imie:";
+            label2.AutoSize = true;
+            label2.Location = new Point(78, 51);
+            label2.Name = "label2";
+            label2.Size = new Size(33, 15);
+            label2.TabIndex = 7;
+            label2.Text = "Imie:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 15);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Nazwisko:";
+            label3.AutoSize = true;
+            label3.Location = new Point(51, 80);
+            label3.Name = "label3";
+            label3.Size = new Size(60, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Nazwisko:";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(71, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Hasło:";
+            label4.AutoSize = true;
+            label4.Location = new Point(71, 109);
+            label4.Name = "label4";
+            label4.Size = new Size(40, 15);
+            label4.TabIndex = 9;
+            label4.Text = "Hasło:";
             // 
             // inpHaslo2
             // 
-            this.inpHaslo2.Location = new System.Drawing.Point(117, 135);
-            this.inpHaslo2.Name = "inpHaslo2";
-            this.inpHaslo2.PasswordChar = '*';
-            this.inpHaslo2.Size = new System.Drawing.Size(286, 23);
-            this.inpHaslo2.TabIndex = 6;
+            inpHaslo2.Location = new Point(117, 135);
+            inpHaslo2.Name = "inpHaslo2";
+            inpHaslo2.PasswordChar = '*';
+            inpHaslo2.Size = new Size(286, 23);
+            inpHaslo2.TabIndex = 6;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 138);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Powtórz hasło:";
+            label5.AutoSize = true;
+            label5.Location = new Point(27, 138);
+            label5.Name = "label5";
+            label5.Size = new Size(84, 15);
+            label5.TabIndex = 11;
+            label5.Text = "Powtórz hasło:";
             // 
             // inpAktywny
             // 
-            this.inpAktywny.AutoSize = true;
-            this.inpAktywny.Location = new System.Drawing.Point(117, 169);
-            this.inpAktywny.Name = "inpAktywny";
-            this.inpAktywny.Size = new System.Drawing.Size(72, 19);
-            this.inpAktywny.TabIndex = 7;
-            this.inpAktywny.Text = "Aktywny";
-            this.inpAktywny.UseVisualStyleBackColor = true;
+            inpAktywny.AutoSize = true;
+            inpAktywny.Location = new Point(117, 169);
+            inpAktywny.Name = "inpAktywny";
+            inpAktywny.Size = new Size(72, 19);
+            inpAktywny.TabIndex = 7;
+            inpAktywny.Text = "Aktywny";
+            inpAktywny.UseVisualStyleBackColor = true;
             // 
             // OknoUzytkownika
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnAnuluj;
-            this.ClientSize = new System.Drawing.Size(415, 411);
-            this.ControlBox = false;
-            this.Controls.Add(this.inpAktywny);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.inpHaslo2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.inpHaslo);
-            this.Controls.Add(this.inpNazwisko);
-            this.Controls.Add(this.inpImie);
-            this.Controls.Add(this.inpLogin);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(431, 450);
-            this.MinimumSize = new System.Drawing.Size(431, 450);
-            this.Name = "OknoUzytkownika";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "OknoUzytkownika";
-            this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnAnuluj;
+            ClientSize = new Size(415, 445);
+            ControlBox = false;
+            Controls.Add(inpAktywny);
+            Controls.Add(label5);
+            Controls.Add(inpHaslo2);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(groupBox1);
+            Controls.Add(inpHaslo);
+            Controls.Add(inpNazwisko);
+            Controls.Add(inpImie);
+            Controls.Add(inpLogin);
+            Controls.Add(label1);
+            Controls.Add(panel1);
+            MaximumSize = new Size(431, 484);
+            MinimumSize = new Size(431, 484);
+            Name = "OknoUzytkownika";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "OknoUzytkownika";
+            Shown += OknoUzytkownika_Shown;
+            panel1.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -395,12 +454,17 @@
         private CheckBox inpZamPodglad;
         private Label label7;
         private Label label6;
-        private ComboBox comboBox1;
+        private ComboBox inpMagazyn;
         private Label label2;
         private Label label3;
         private Label label4;
         private TextBox inpHaslo2;
         private Label label5;
         private CheckBox inpAktywny;
+        private CheckBox inpHistoriaPodglad;
+        private Label label12;
+        private CheckBox inpUzytkownikEytuj;
+        private CheckBox inpUzytkownikPodglad;
+        private Label label11;
     }
 }

@@ -109,7 +109,11 @@ namespace Piekarnie
         {
             String sql = "INSERT INTO [Uzytkownik] ([Login],[Imie] ,[Nazwisko] ,[haslo] ,[data] ,[magazyn_id] ,[zamowienia_podglad] ,[zamowienia_edycja] ,[produkty_podglad] ,[produkty_edycja] ,[magazyny_podglad] ,[magazyny_edycja] ,[podmiot_podglad] ,[podmiot_edycja], [aktywny], [statusy_podglad], [statusy_edycja], [uzytkonicy_podglad], [uzytkownicy_edycja], [historia_podglad]) ";
             sql += " VALUES ";
-            sql += "('"+this.Login+"','"+this.Imie+"','"+this.Nazwisko+"','"+this.Haslo+"',GETDATE(),"+this.MagazynId.ToString()+",";
+            sql += "('" + this.Login + "','" + this.Imie + "','" + this.Nazwisko + "','" + this.Haslo + "',GETDATE(),";
+            if (this.MagazynId > 0)
+                sql += this.MagazynId.ToString() + ",";
+            else
+                sql += "NULL,";
             sql += this.Zamowienia_podglad.ToString()+", "+this.Zamowienia_edycja.ToString()+","+this.Produkty_podglad.ToString()+","+this.Produkty_edycja.ToString()+",";
             sql += this.Magazyn_podglad.ToString() + "," + this.Magazyn_edycja.ToString() + "," + this.Podmiot_podglad.ToString() + "," + this.Podmiot_edycja.ToString() + ", " + this.Aktywny.ToString() + ", ";
             sql += this.Status_podglad.ToString() + ", " + this.Status_edycja.ToString() + ", " + this.Uzytkownik_podglad.ToString() + ", " + this.Uzytkownik_edycja.ToString() + ", " + this.Historia_podglad.ToString() + ")";
@@ -129,7 +133,10 @@ namespace Piekarnie
             sql += "[Imie]='" + this.Imie + "', ";
             sql += "[Nazwisko]='" + this.Nazwisko + "', ";
             sql += "[haslo]='" + this.Haslo + "', ";
-            sql += "[magazyn_id]=" + this.MagazynId.ToString();
+            if (this.MagazynId > 0)
+                sql += "[magazyn_id]=" + this.MagazynId.ToString();
+            else
+                sql += "[magazyn_id]=NULL";
             sql += ",[zamowienia_podglad]=" + this.Zamowienia_podglad.ToString();
             sql += ",[zamowienia_edycja]=" + this.Zamowienia_edycja.ToString();
             sql += ",[produkty_podglad]=" + this.Produkty_podglad.ToString();
@@ -145,6 +152,23 @@ namespace Piekarnie
             sql += ",[uzytkownicy_edycja]=" + this.Uzytkownik_edycja.ToString();
             sql += ",[historia_podglad]=" + this.Historia_podglad.ToString();
             sql += " WHERE ID="+this.Id.ToString();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("Uzytkownik->Edytuj" + Environment.NewLine + ex.Message); }
+        }
+
+        public void Usun()
+        {
+            String sql = "DELETE FROM [Uzytkownik] WHERE [ID]=" + this.Id.ToString();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("Uzytkownik->Usuń" + Environment.NewLine + ex.Message); }
         }
 
     }
