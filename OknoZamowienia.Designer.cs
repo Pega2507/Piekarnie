@@ -29,22 +29,27 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
+            inpPodmiot = new ComboBox();
+            inpStatus = new ComboBox();
+            inpData = new DateTimePicker();
             label2 = new Label();
             label3 = new Label();
             panel1 = new Panel();
             btnZapisz = new Button();
             btnAnuluj = new Button();
-            dataGridView1 = new DataGridView();
+            dataGridViewProdukty = new DataGridView();
             label4 = new Label();
             btnDodaj = new Button();
             btnEdytuj = new Button();
             btnUsun = new Button();
             btnDodajPodmiot = new Button();
+            ID = new DataGridViewTextBoxColumn();
+            Nazwa = new DataGridViewTextBoxColumn();
+            Ilosc = new DataGridViewTextBoxColumn();
+            Cena = new DataGridViewTextBoxColumn();
+            Wartosc = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProdukty).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -56,28 +61,30 @@
             label1.TabIndex = 0;
             label1.Text = "Podmiot:";
             // 
-            // comboBox1
+            // inpPodmiot
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(113, 12);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(589, 23);
-            comboBox1.TabIndex = 1;
+            inpPodmiot.FormattingEnabled = true;
+            inpPodmiot.Location = new Point(113, 12);
+            inpPodmiot.Name = "inpPodmiot";
+            inpPodmiot.Size = new Size(589, 23);
+            inpPodmiot.TabIndex = 1;
+            inpPodmiot.DropDown += inpPodmiot_DropDown;
             // 
-            // comboBox2
+            // inpStatus
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(113, 41);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(149, 23);
-            comboBox2.TabIndex = 2;
+            inpStatus.FormattingEnabled = true;
+            inpStatus.Location = new Point(113, 41);
+            inpStatus.Name = "inpStatus";
+            inpStatus.Size = new Size(149, 23);
+            inpStatus.TabIndex = 2;
+            inpStatus.DropDown += inpStatus_DropDown;
             // 
-            // dateTimePicker1
+            // inpData
             // 
-            dateTimePicker1.Location = new Point(378, 41);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 3;
+            inpData.Location = new Point(378, 41);
+            inpData.Name = "inpData";
+            inpData.Size = new Size(200, 23);
+            inpData.TabIndex = 3;
             // 
             // label2
             // 
@@ -125,14 +132,15 @@
             btnAnuluj.Text = "Anuluj";
             btnAnuluj.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewProdukty
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(113, 120);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(694, 238);
-            dataGridView1.TabIndex = 7;
+            dataGridViewProdukty.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewProdukty.Columns.AddRange(new DataGridViewColumn[] { ID, Nazwa, Ilosc, Cena, Wartosc });
+            dataGridViewProdukty.Location = new Point(113, 120);
+            dataGridViewProdukty.Name = "dataGridViewProdukty";
+            dataGridViewProdukty.RowTemplate.Height = 25;
+            dataGridViewProdukty.Size = new Size(694, 238);
+            dataGridViewProdukty.TabIndex = 7;
             // 
             // label4
             // 
@@ -179,6 +187,38 @@
             btnDodajPodmiot.Text = "Dodaj";
             btnDodajPodmiot.UseVisualStyleBackColor = true;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            // 
+            // Nazwa
+            // 
+            Nazwa.HeaderText = "Produkt";
+            Nazwa.Name = "Nazwa";
+            Nazwa.ReadOnly = true;
+            Nazwa.Width = 300;
+            // 
+            // Ilosc
+            // 
+            Ilosc.HeaderText = "Ilość";
+            Ilosc.Name = "Ilosc";
+            Ilosc.ReadOnly = true;
+            // 
+            // Cena
+            // 
+            Cena.HeaderText = "Cena";
+            Cena.Name = "Cena";
+            Cena.ReadOnly = true;
+            // 
+            // Wartosc
+            // 
+            Wartosc.HeaderText = "Wartość";
+            Wartosc.Name = "Wartosc";
+            Wartosc.ReadOnly = true;
+            // 
             // OknoZamowienia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -191,13 +231,13 @@
             Controls.Add(btnEdytuj);
             Controls.Add(btnDodaj);
             Controls.Add(label4);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewProdukty);
             Controls.Add(panel1);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(inpData);
+            Controls.Add(inpStatus);
+            Controls.Add(inpPodmiot);
             Controls.Add(label1);
             MaximumSize = new Size(843, 494);
             MinimumSize = new Size(843, 494);
@@ -205,7 +245,7 @@
             Text = "Zamówienie";
             Shown += OknoZamowienia_Shown;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProdukty).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -213,19 +253,24 @@
         #endregion
 
         private Label label1;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private DateTimePicker dateTimePicker1;
+        private ComboBox inpPodmiot;
+        private ComboBox inpStatus;
+        private DateTimePicker inpData;
         private Label label2;
         private Label label3;
         private Panel panel1;
         private Button btnZapisz;
         private Button btnAnuluj;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewProdukty;
         private Label label4;
         private Button btnDodaj;
         private Button btnEdytuj;
         private Button btnUsun;
         private Button btnDodajPodmiot;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Nazwa;
+        private DataGridViewTextBoxColumn Ilosc;
+        private DataGridViewTextBoxColumn Cena;
+        private DataGridViewTextBoxColumn Wartosc;
     }
 }

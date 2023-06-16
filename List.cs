@@ -38,7 +38,7 @@ namespace Piekarnie
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(tab);
             }
-            catch (Exception ex) { throw new Exception("List->pobierzMagazyny " + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("List->pobierzUzytkownikow " + Environment.NewLine + ex.Message); }
 
             return tab;
         }
@@ -48,12 +48,44 @@ namespace Piekarnie
 
             try
             {
-                String sql = "[ID], [Nazwa],[Adres] ,[Telefon] FROM [Podmiot] WHERE [Typ]=" + Typ.ToString();
+                String sql = "SELECT [ID], [Nazwa],[Adres] ,[Telefon] FROM [Podmiot] WHERE [Typ]=" + Typ.ToString() + " ORDER BY [Nazwa] ASC";
                 SqlCommand cmd = new SqlCommand(sql, db.Polaczenie);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(tab);
             }
-            catch (Exception ex) { throw new Exception("List->pobierzMagazyny " + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("List->pobierzPodmioty " + Environment.NewLine + ex.Message); }
+
+            return tab;
+        }
+        public static DataTable pobierzStatusy(BazaDanych db)
+        {
+            DataTable tab = new DataTable();
+
+            try
+            {
+                String sql = "SELECT [ID], [Nazwa] FROM [Status]  ORDER BY [Nazwa] ASC";
+                SqlCommand cmd = new SqlCommand(sql, db.Polaczenie);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(tab);
+            }
+            catch (Exception ex) { throw new Exception("List->pobierzStatusy " + Environment.NewLine + ex.Message); }
+
+            return tab;
+        }
+        public static DataTable pobierzPozycjeZam(Int32 zamId, BazaDanych db)
+        {
+            DataTable tab = new DataTable();
+
+            try
+            {
+                String sql = "SELECT p.[ID], pr.[Nazwa] ,p.[ilosc] ,p.[cena], (p.[ilosc]*p.[cena]) AS wartosc FROM [Zamowienie_produkty] p";
+                sql += " LEFT JOIN [Produkt] pr ON (pr.[ID]=p.[produkt_id]) ";
+                sql += " WHERE [zamowienie_id]=" + zamId.ToString();
+                SqlCommand cmd = new SqlCommand(sql, db.Polaczenie);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(tab);
+            }
+            catch (Exception ex) { throw new Exception("List->pobierzPozycjeZam " + Environment.NewLine + ex.Message); }
 
             return tab;
         }
