@@ -43,7 +43,16 @@ namespace Piekarnie
                     mag_id = this.uzyt.MagazynId;
 
                 this.inpZamPodglad.Checked = this.uzyt.Zamowienia_podglad;
-                //do uzupełnienia pozostałe uprawnienia
+                this.inpZamEdycja.Checked = this.uzyt.Zamowienia_edycja;
+                this.inpProdPodglad.Checked = this.uzyt.Produkty_podglad;
+                this.inpProdEdycja.Checked = this.uzyt.Produkty_edycja;
+                this.inpMagPodglad.Checked = this.uzyt.Magazyn_podglad;
+                this.inpMagEdycja.Checked = this.uzyt.Magazyn_edycja;
+                this.inpPodmiotPodglad.Checked = this.uzyt.Podmiot_podglad;
+                this.inpPodmiotEdycja.Checked = this.uzyt.Podmiot_edycja;
+                this.inpUzytkownikPodglad.Checked = this.uzyt.Uzytkownik_podglad;
+                this.inpUzytkownikEytuj.Checked = this.uzyt.Uzytkownik_edycja;
+                this.inpHistoriaPodglad.Checked = this.uzyt.Historia_podglad;
             }
             inpMagazyn.Items.Add(new PozycjaListyRozwijanej(-1, "Wybierz"));
             foreach (DataRow magazyn in List.pobierzMagazyny(this.db).Rows)
@@ -111,7 +120,16 @@ namespace Piekarnie
             this.uzyt.MagazynId = magId;
 
             this.uzyt.Zamowienia_podglad = this.inpZamPodglad.Checked;
-            //dodajemy reszte uprawnień
+            this.uzyt.Zamowienia_edycja = this.inpZamEdycja.Checked;
+            this.uzyt.Produkty_podglad = this.inpProdPodglad.Checked;
+            this.uzyt.Produkty_edycja = this.inpProdEdycja.Checked;
+            this.uzyt.Magazyn_podglad = this.inpMagPodglad.Checked;
+            this.uzyt.Magazyn_edycja = this.inpMagEdycja.Checked;
+            this.uzyt.Podmiot_podglad = this.inpPodmiotPodglad.Checked;
+            this.uzyt.Podmiot_edycja = this.inpPodmiotEdycja.Checked;
+            this.uzyt.Uzytkownik_podglad = this.inpUzytkownikPodglad.Checked;
+            this.uzyt.Uzytkownik_edycja = this.inpUzytkownikEytuj.Checked;
+            this.uzyt.Historia_podglad = this.inpHistoriaPodglad.Checked;
 
             if (newUzytkownik)
                 this.uzyt.Dodaj();

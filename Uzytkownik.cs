@@ -65,7 +65,7 @@ namespace Piekarnie
 
         public void Pobierz()
         {
-            String sql = "SELECT [ID], [Login],[Imie] ,[Nazwisko] ,[haslo] ,[data] ,ISNULL([magazyn_id],-1) AS [magazyn_id] ,[zamowienia_podglad] ,[zamowienia_edycja] ,[produkty_podglad] ,[produkty_edycja] ,[magazyny_podglad] ,[magazyny_edycja] ,[podmiot_podglad] ,[podmiot_edycja], [aktywny], [statusy_podglad], [statusy_edycja], [uzytkonicy_podglad], [uzytkownicy_edycja], [historia_podglad] ";
+            String sql = "SELECT [ID], [Login],[Imie] ,[Nazwisko] ,[haslo] ,[data] ,ISNULL([magazyn_id],-1) AS [magazyn_id] ,[zamowienia_podglad] ,[zamowienia_edycja] ,[produkty_podglad] ,[produkty_edycja] ,[magazyny_podglad] ,[magazyny_edycja] ,[podmiot_podglad] ,[podmiot_edycja], [aktywny], [statusy_podglad], [statusy_edycja], [uzytkownicy_podglad], [uzytkownicy_edycja], [historia_podglad] ";
             sql += " FROM [Uzytkownik] ";
 
             if (this.Id > 0)
