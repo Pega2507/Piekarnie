@@ -76,15 +76,19 @@
             dataGridViewStatusy = new DataGridView();
             tabUzytkownikTab = new TabPage();
             dataGridViewUzytkownik = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
             Login = new DataGridViewTextBoxColumn();
             Imię = new DataGridViewTextBoxColumn();
             Nazwisko = new DataGridViewTextBoxColumn();
             Aktywny = new DataGridViewTextBoxColumn();
-            ID = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            toolStripStatusLabel2 = new ToolStripStatusLabel();
+            lbFootMagazyn = new ToolStripStatusLabel();
+            inpZmienMagazyn = new ComboBox();
+            label1 = new Label();
             statusStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabZamowienia.SuspendLayout();
@@ -114,7 +118,7 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, lbFootUzytkownik });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, lbFootUzytkownik, toolStripStatusLabel2, lbFootMagazyn });
             statusStrip1.Location = new Point(0, 428);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(976, 22);
@@ -151,6 +155,8 @@
             // 
             // tabZamowienia
             // 
+            tabZamowienia.Controls.Add(label1);
+            tabZamowienia.Controls.Add(inpZmienMagazyn);
             tabZamowienia.Controls.Add(btnUsunZamowienie);
             tabZamowienia.Controls.Add(btnEdytujZamowienie);
             tabZamowienia.Controls.Add(btnDodajZamowienia);
@@ -188,6 +194,7 @@
             btnDodajZamowienia.TabIndex = 0;
             btnDodajZamowienia.Text = "Dodaj";
             btnDodajZamowienia.UseVisualStyleBackColor = true;
+            btnDodajZamowienia.Click += btnDodajZamowienia_Click;
             // 
             // tabZamowieniaDoDostawcow
             // 
@@ -600,6 +607,12 @@
             dataGridViewUzytkownik.Size = new Size(968, 312);
             dataGridViewUzytkownik.TabIndex = 0;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.Visible = false;
+            // 
             // Login
             // 
             Login.Frozen = true;
@@ -624,12 +637,6 @@
             Aktywny.HeaderText = "Aktywny";
             Aktywny.Name = "Aktywny";
             Aktywny.ReadOnly = true;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.Visible = false;
             // 
             // Column1
             // 
@@ -656,6 +663,34 @@
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
             // 
+            // toolStripStatusLabel2
+            // 
+            toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            toolStripStatusLabel2.Size = new Size(58, 17);
+            toolStripStatusLabel2.Text = "Magazyn:";
+            // 
+            // lbFootMagazyn
+            // 
+            lbFootMagazyn.Name = "lbFootMagazyn";
+            lbFootMagazyn.Size = new Size(0, 17);
+            // 
+            // inpZmienMagazyn
+            // 
+            inpZmienMagazyn.FormattingEnabled = true;
+            inpZmienMagazyn.Location = new Point(314, 31);
+            inpZmienMagazyn.Name = "inpZmienMagazyn";
+            inpZmienMagazyn.Size = new Size(161, 23);
+            inpZmienMagazyn.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(314, 6);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 15);
+            label1.TabIndex = 4;
+            label1.Text = "Magazyn:";
+            // 
             // OknoGlowne
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -670,6 +705,7 @@
             statusStrip1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabZamowienia.ResumeLayout(false);
+            tabZamowienia.PerformLayout();
             tabZamowieniaDoDostawcow.ResumeLayout(false);
             tabMagazyny.ResumeLayout(false);
             tabProdukty.ResumeLayout(false);
@@ -755,5 +791,9 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private ToolStripStatusLabel toolStripStatusLabel2;
+        private ToolStripStatusLabel lbFootMagazyn;
+        private Label label1;
+        private ComboBox inpZmienMagazyn;
     }
 }
