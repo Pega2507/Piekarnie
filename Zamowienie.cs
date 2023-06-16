@@ -10,7 +10,7 @@ namespace Piekarnie
 {
     public class Zamowienie
     {
-        private Int32 Id = 0;
+        public Int32 Id = 0;
         public String Nazwa = "";
         public Int32 PodmiotId = 0;
         public Int32 Typ = 0;

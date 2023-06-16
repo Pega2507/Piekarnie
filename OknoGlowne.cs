@@ -135,7 +135,7 @@ namespace Piekarnie
 
         private void btnDodajZamowienia_Click(object sender, EventArgs e)
         {
-            OknoZamowienia okno = new OknoZamowienia(this.db);
+            OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Piekarnia, this.db);
             if(okno.ShowDialog()==DialogResult.OK)
             {
                 this.dataGridViewZamowienia.Refresh();
