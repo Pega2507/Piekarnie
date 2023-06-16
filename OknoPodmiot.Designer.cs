@@ -59,6 +59,7 @@
             this.inpTyp.Name = "inpTyp";
             this.inpTyp.Size = new System.Drawing.Size(326, 23);
             this.inpTyp.TabIndex = 1;
+            this.inpTyp.SelectedIndexChanged += new System.EventHandler(this.inpTyp_SelectedIndexChanged);
             // 
             // inpNazwa
             // 
@@ -119,6 +120,7 @@
             this.inpNowyMagazyn.TabIndex = 5;
             this.inpNowyMagazyn.Text = "Utwórz magazyn";
             this.inpNowyMagazyn.UseVisualStyleBackColor = true;
+            this.inpNowyMagazyn.Visible = false;
             // 
             // panel1
             // 
@@ -138,6 +140,7 @@
             this.btnZapisz.TabIndex = 7;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
+            this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
             // 
             // btnAnuluj
             // 
@@ -168,6 +171,7 @@
             this.MinimumSize = new System.Drawing.Size(467, 333);
             this.Name = "OknoPodmiot";
             this.Text = "Podmiot";
+            this.Shown += new System.EventHandler(this.OknoPodmiot_Shown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

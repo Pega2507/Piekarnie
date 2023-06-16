@@ -70,6 +70,7 @@
             this.btnZapisz.TabIndex = 3;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
+            this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
             // 
             // btnAnuluj
             // 
@@ -94,6 +95,7 @@
             this.MinimumSize = new System.Drawing.Size(301, 156);
             this.Name = "OknoStatus";
             this.Text = "Status";
+            this.Shown += new System.EventHandler(this.OknoStatus_Shown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

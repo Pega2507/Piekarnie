@@ -12,9 +12,89 @@ namespace Piekarnie
 {
     public partial class OknoPodmiot : Form
     {
-        public OknoPodmiot()
+        private Podmiot podmiot = null;
+        private BazaDanych db = null;
+
+        public OknoPodmiot(BazaDanych db)
         {
             InitializeComponent();
+            this.db = db;
+        }
+
+        public OknoPodmiot(Int32 Id, BazaDanych db)
+        {
+            InitializeComponent();
+            this.db = db;
+            try
+            {
+                this.podmiot = new Podmiot(Id, this.db);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void OknoPodmiot_Shown(object sender, EventArgs e)
+        {
+            this.inpTyp.Items.Add(new PozycjaListyRozwijanej((int)TypPodmiotu.Piekarnia, "Piekarnia"));
+            this.inpTyp.Items.Add(new PozycjaListyRozwijanej((int)TypPodmiotu.Dostawca, "Dostawca"));
+
+            if (this.podmiot != null)
+            {
+                this.inpNazwa.Text = this.podmiot.Nazwa;
+                this.inpAdres.Text = this.podmiot.Adres;
+                this.inpTelefon.Text = this.podmiot.Telefon;
+                if (this.podmiot.Typ == (int)TypPodmiotu.Piekarnia)
+                    this.inpTyp.SelectedIndex = 0;
+                else
+                    this.inpTyp.SelectedIndex = 1;
+            }
+        }
+
+        private void inpTyp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.inpTyp.SelectedIndex == 0)
+            {
+                this.inpNowyMagazyn.Visible = true;
+            }
+            else
+                this.inpNowyMagazyn.Visible = false;
+        }
+
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {
+            if (this.inpAdres.Text.Trim().Length == 0)
+            {
+                if (MessageBox.Show("Wypełnij pole Adres", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
+
+                    this.inpAdres.Focus();
+            }
+            if (this.inpNazwa.Text.Trim().Length == 0)
+            {
+                if (MessageBox.Show("Wypełnij pole Nazwa", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
+
+                    this.inpNazwa.Focus();
+            }
+            if (this.inpTelefon.Text.Trim().Length == 0)
+            {
+                if (MessageBox.Show("Wypełnij pole Telefon", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
+
+                    this.inpTelefon.Focus();
+            }
+            if (this.inpTyp.Text.Trim().Length == 0)
+            {
+                if (MessageBox.Show("Wypełnij pole Typ", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
+
+                    this.inpTyp.Focus();
+            }
+
+            this.podmiot = new Podmiot(this.db);
+            this.podmiot.Adres = this.inpAdres.Text;
+            this.podmiot.Nazwa= this.inpNazwa.Text;
+            this.podmiot.Telefon=this.inpTelefon.Text;
+            //typ i checkbox do zrobienia
+            if (this.podmiot.Id == 0)
+                this.podmiot.Dodaj();
+            else
+                this.podmiot.Edytuj();
         }
     }
 }

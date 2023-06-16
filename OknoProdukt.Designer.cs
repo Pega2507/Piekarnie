@@ -112,6 +112,7 @@
             this.Controls.Add(this.inpNazwa);
             this.Name = "OknoProdukt";
             this.Text = "OknoProdukt";
+            this.Shown += new System.EventHandler(this.OknoProdukt_Shown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
