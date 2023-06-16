@@ -126,9 +126,19 @@ namespace Piekarnie
                     {
                         Uzytkownik uzyt = new Uzytkownik(id, this.db);
                         uzyt.Usun();
+                        this.dataGridViewUzytkownik.Refresh();
                     }
                     catch (Exception ex) { MessageBox.Show(ex.Message, "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
+            }
+        }
+
+        private void btnDodajZamowienia_Click(object sender, EventArgs e)
+        {
+            OknoZamowienia okno = new OknoZamowienia(this.db);
+            if(okno.ShowDialog()==DialogResult.OK)
+            {
+                this.dataGridViewZamowienia.Refresh();
             }
         }
     }

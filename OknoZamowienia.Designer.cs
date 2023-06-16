@@ -28,175 +28,186 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnZapisz = new System.Windows.Forms.Button();
-            this.btnAnuluj = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnDodaj = new System.Windows.Forms.Button();
-            this.btnEdytuj = new System.Windows.Forms.Button();
-            this.btnUsun = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
+            label1 = new Label();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
+            dateTimePicker1 = new DateTimePicker();
+            label2 = new Label();
+            label3 = new Label();
+            panel1 = new Panel();
+            btnZapisz = new Button();
+            btnAnuluj = new Button();
+            dataGridView1 = new DataGridView();
+            label4 = new Label();
+            btnDodaj = new Button();
+            btnEdytuj = new Button();
+            btnUsun = new Button();
+            btnDodajPodmiot = new Button();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Podmiot:";
+            label1.AutoSize = true;
+            label1.Location = new Point(51, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(56, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Podmiot:";
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(113, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(589, 23);
-            this.comboBox1.TabIndex = 1;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(113, 12);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(589, 23);
+            comboBox1.TabIndex = 1;
             // 
             // comboBox2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(113, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(149, 23);
-            this.comboBox2.TabIndex = 2;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(113, 41);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(149, 23);
+            comboBox2.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(378, 41);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 3;
+            dateTimePicker1.Location = new Point(378, 41);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Status:";
+            label2.AutoSize = true;
+            label2.Location = new Point(65, 44);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Status:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(338, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Data:";
+            label3.AutoSize = true;
+            label3.Location = new Point(338, 44);
+            label3.Name = "label3";
+            label3.Size = new Size(34, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Data:";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnZapisz);
-            this.panel1.Controls.Add(this.btnAnuluj);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 404);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(827, 51);
-            this.panel1.TabIndex = 6;
+            panel1.Controls.Add(btnZapisz);
+            panel1.Controls.Add(btnAnuluj);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 404);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(827, 51);
+            panel1.TabIndex = 6;
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(740, 16);
-            this.btnZapisz.Name = "btnZapisz";
-            this.btnZapisz.Size = new System.Drawing.Size(75, 23);
-            this.btnZapisz.TabIndex = 8;
-            this.btnZapisz.Text = "Zapisz";
-            this.btnZapisz.UseVisualStyleBackColor = true;
+            btnZapisz.Location = new Point(740, 16);
+            btnZapisz.Name = "btnZapisz";
+            btnZapisz.Size = new Size(75, 23);
+            btnZapisz.TabIndex = 8;
+            btnZapisz.Text = "Zapisz";
+            btnZapisz.UseVisualStyleBackColor = true;
             // 
             // btnAnuluj
             // 
-            this.btnAnuluj.Location = new System.Drawing.Point(12, 16);
-            this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(75, 23);
-            this.btnAnuluj.TabIndex = 7;
-            this.btnAnuluj.Text = "Anuluj";
-            this.btnAnuluj.UseVisualStyleBackColor = true;
+            btnAnuluj.Location = new Point(12, 16);
+            btnAnuluj.Name = "btnAnuluj";
+            btnAnuluj.Size = new Size(75, 23);
+            btnAnuluj.TabIndex = 7;
+            btnAnuluj.Text = "Anuluj";
+            btnAnuluj.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(113, 120);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(694, 238);
-            this.dataGridView1.TabIndex = 7;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(113, 120);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(694, 238);
+            dataGridView1.TabIndex = 7;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 15);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Produkty:";
+            label4.AutoSize = true;
+            label4.Location = new Point(49, 120);
+            label4.Name = "label4";
+            label4.Size = new Size(58, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Produkty:";
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(113, 364);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
-            this.btnDodaj.TabIndex = 4;
-            this.btnDodaj.Text = "Dodaj";
-            this.btnDodaj.UseVisualStyleBackColor = true;
+            btnDodaj.Location = new Point(113, 364);
+            btnDodaj.Name = "btnDodaj";
+            btnDodaj.Size = new Size(75, 23);
+            btnDodaj.TabIndex = 4;
+            btnDodaj.Text = "Dodaj";
+            btnDodaj.UseVisualStyleBackColor = true;
             // 
             // btnEdytuj
             // 
-            this.btnEdytuj.Location = new System.Drawing.Point(194, 364);
-            this.btnEdytuj.Name = "btnEdytuj";
-            this.btnEdytuj.Size = new System.Drawing.Size(75, 23);
-            this.btnEdytuj.TabIndex = 5;
-            this.btnEdytuj.Text = "Edytuj";
-            this.btnEdytuj.UseVisualStyleBackColor = true;
+            btnEdytuj.Location = new Point(194, 364);
+            btnEdytuj.Name = "btnEdytuj";
+            btnEdytuj.Size = new Size(75, 23);
+            btnEdytuj.TabIndex = 5;
+            btnEdytuj.Text = "Edytuj";
+            btnEdytuj.UseVisualStyleBackColor = true;
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(275, 364);
-            this.btnUsun.Name = "btnUsun";
-            this.btnUsun.Size = new System.Drawing.Size(75, 23);
-            this.btnUsun.TabIndex = 6;
-            this.btnUsun.Text = "Usuń";
-            this.btnUsun.UseVisualStyleBackColor = true;
+            btnUsun.Location = new Point(275, 364);
+            btnUsun.Name = "btnUsun";
+            btnUsun.Size = new Size(75, 23);
+            btnUsun.TabIndex = 6;
+            btnUsun.Text = "Usuń";
+            btnUsun.UseVisualStyleBackColor = true;
+            // 
+            // btnDodajPodmiot
+            // 
+            btnDodajPodmiot.Location = new Point(708, 12);
+            btnDodajPodmiot.Name = "btnDodajPodmiot";
+            btnDodajPodmiot.Size = new Size(75, 23);
+            btnDodajPodmiot.TabIndex = 9;
+            btnDodajPodmiot.Text = "Dodaj";
+            btnDodajPodmiot.UseVisualStyleBackColor = true;
             // 
             // OknoZamowienia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnAnuluj;
-            this.ClientSize = new System.Drawing.Size(827, 455);
-            this.ControlBox = false;
-            this.Controls.Add(this.btnUsun);
-            this.Controls.Add(this.btnEdytuj);
-            this.Controls.Add(this.btnDodaj);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(843, 494);
-            this.MinimumSize = new System.Drawing.Size(843, 494);
-            this.Name = "OknoZamowienia";
-            this.Text = "Zamówienie";
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnAnuluj;
+            ClientSize = new Size(827, 455);
+            ControlBox = false;
+            Controls.Add(btnDodajPodmiot);
+            Controls.Add(btnUsun);
+            Controls.Add(btnEdytuj);
+            Controls.Add(btnDodaj);
+            Controls.Add(label4);
+            Controls.Add(dataGridView1);
+            Controls.Add(panel1);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
+            Controls.Add(label1);
+            MaximumSize = new Size(843, 494);
+            MinimumSize = new Size(843, 494);
+            Name = "OknoZamowienia";
+            Text = "Zamówienie";
+            Shown += OknoZamowienia_Shown;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -215,5 +226,6 @@
         private Button btnDodaj;
         private Button btnEdytuj;
         private Button btnUsun;
+        private Button btnDodajPodmiot;
     }
 }
