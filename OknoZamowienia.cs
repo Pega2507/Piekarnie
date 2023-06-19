@@ -151,7 +151,7 @@ namespace Piekarnie
             OknoPozycjiZamowienia poz = new OknoPozycjiZamowienia(this.db, this.zam.Id);
             if (poz.ShowDialog() == DialogResult.OK)
             {
-                this.dataGridViewProdukty.Refresh();
+                this.odswierzPozycje();
             }
         }
 
@@ -178,10 +178,8 @@ namespace Piekarnie
                 this.zam.StatusId = (this.inpStatus.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
                 this.zam.PodmiotId = (this.inpPodmiot.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
 
-                if (this.zam.Id == 0)
-                    this.zam.Dodaj();
-                else
-                    this.zam.Edytuj();
+                this.zam.Edytuj();
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }

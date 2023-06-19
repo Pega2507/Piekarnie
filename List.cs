@@ -104,5 +104,24 @@ namespace Piekarnie
 
             return tab;
         }
+
+        public static DataTable pobierzZamowienia(Int32 typ, Int32 magId, BazaDanych db)
+        {
+            DataTable tab = new DataTable();
+
+            try
+            {
+                String sql = "SELECT z.[ID], z.[Data] ,z.[podmiot_id] ,z.[status_id], p.[Nazwa] AS podmiot, s.[Nazwa] AS status FROM [Zamowienia] z ";
+                sql += " LEFT JOIN [Podmiot] p ON (p.[ID]=z.[podmiot_id]) ";
+                sql += " LEFT JOIN [Statusy] s ON (s.[ID]=z.[status_id]) ";
+                sql += " WHERE z.[typ]=" + typ.ToString() + " AND z.[magazyn_id]=" + magId.ToString();
+                SqlCommand cmd = new SqlCommand(sql, db.Polaczenie);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(tab);
+            }
+            catch (Exception ex) { throw new Exception("List->pobierzProdukty " + Environment.NewLine + ex.Message); }
+
+            return tab;
+        }
     }
 }

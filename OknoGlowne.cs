@@ -29,7 +29,7 @@ namespace Piekarnie
 
                 this.inpZmienMagazyn.Items.Clear();
 
-                foreach(DataRow magazyn in List.pobierzMagazyny(this.db).Rows)
+                foreach (DataRow magazyn in List.pobierzMagazyny(this.db).Rows)
                 {
                     Int32 id = 0;
                     Int32.TryParse(magazyn["ID"].ToString(), out id);
@@ -208,7 +208,7 @@ namespace Piekarnie
                     zam.Usun();
                     this.dataGridViewZamowienia.Refresh();
                 }
-                catch(Exception ex) { MessageBox.Show(ex.Message); }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
 
@@ -367,5 +367,18 @@ namespace Piekarnie
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
+
+        private void odswierzListeZamowien(Int32 typZamowienia)
+        {
+            if (typZamowienia == (int)TypPodmiotu.Piekarnia)
+            {
+                this.dataGridViewZamowienia.DataSource = List.pobierzZamowienia(typZamowienia, this.MagId, this.db);
+                this.dataGridViewZamowienia.Refresh();
+            }
+            else
+            {
+                this.dataGridViewZamówieniaDostawcy.DataSource = List.pobierzZamowienia(typZamowienia, this.MagId, this.db);
+                this.dataGridViewZamówieniaDostawcy.Refresh();
+            }
     }
 }

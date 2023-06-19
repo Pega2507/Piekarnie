@@ -61,11 +61,13 @@ namespace Piekarnie
         {
             String sql = "INSERT INTO [Zamowienia] ([Data], [podmiot_id], [typ], [status_id], [magazyn_id]) ";
             sql += " VALUES ";
-            sql += "('" + this.Data.ToString("yyyy-MM-dd") + "'," + this.PodmiotId.ToString() + ", " + this.Typ.ToString() + ", " + this.StatusId.ToString() + ", "+this.MagazynId.ToString()+")";
+            sql += "('" + this.Data.ToString("yyyy-MM-dd") + "'," + this.PodmiotId.ToString() + ", " + this.Typ.ToString() + ", " + this.StatusId.ToString() + ", "+this.MagazynId.ToString()+");";
+            sql += " SELECT @@IDENTITY;";
             try
             {
                 SqlCommand cmd = new SqlCommand(sql,this.db.Polaczenie);
-                cmd.ExecuteNonQuery();
+                object id = cmd.ExecuteScalar();
+                this.Id = Int32.Parse(id.ToString());
             }
             catch (Exception ex) { throw new Exception("Zamowienia->Dodaj" + Environment.NewLine + ex.Message); }
         }
@@ -73,7 +75,7 @@ namespace Piekarnie
         public void Edytuj()
         {
             String sql = "UPDATE [Zamowienia] SET ";
-            sql += "[data]='" + this.Data.ToString("yyyy-MM-dd") + "'";
+            sql += "[data]='" + this.Data.ToString("yyyy-MM-dd") + "',";
             sql += "[podmiot_id]=" + this.PodmiotId.ToString() + ", ";
             sql += "[typ]=" + this.Typ.ToString() + ", ";
             sql += "[status_id]=" + this.StatusId.ToString();
