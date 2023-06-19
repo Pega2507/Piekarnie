@@ -104,6 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnAnuluj;
             this.ClientSize = new System.Drawing.Size(302, 134);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
@@ -115,6 +116,7 @@
             this.MinimumSize = new System.Drawing.Size(318, 173);
             this.Name = "OknoMagazyn";
             this.Text = "Magazyn";
+            this.Load += new System.EventHandler(this.OknoMagazyn_Load);
             this.Shown += new System.EventHandler(this.OknoMagazyn_Shown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

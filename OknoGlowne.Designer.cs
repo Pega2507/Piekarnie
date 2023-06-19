@@ -166,6 +166,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(976, 88);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.Click += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabZamowienia
             // 
@@ -351,6 +352,7 @@
             this.btnDodajProdukty.TabIndex = 3;
             this.btnDodajProdukty.Text = "Dodaj";
             this.btnDodajProdukty.UseVisualStyleBackColor = true;
+            this.btnDodajProdukty.Click += new System.EventHandler(this.btnDodajProdukty_Click);
             // 
             // tabPodmioty
             // 
