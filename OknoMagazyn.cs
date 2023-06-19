@@ -71,5 +71,10 @@ namespace Piekarnie
 
             this.DialogResult= DialogResult.OK;
         }
+
+        private void OknoMagazyn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
