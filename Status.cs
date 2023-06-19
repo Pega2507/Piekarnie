@@ -71,5 +71,16 @@ namespace Piekarnie
             sql += "[Nazwa]='" + this.Nazwa + "' ";
             sql += " WHERE ID="+this.Id.ToString();
         }
+
+        public void Usun()
+        {
+            String sql = "DELETE FROM [Statusy] WHERE ID=" + this.Id.ToString();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("Statusy -> Usun" + Environment.NewLine + ex.Message); }
+        }
     }
 }

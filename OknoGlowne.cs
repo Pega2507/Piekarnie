@@ -216,5 +216,156 @@ namespace Piekarnie
         {
             this.MagId = (this.inpZmienMagazyn.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
         }
+
+        private void btnDodajMagazyny_Click(object sender, EventArgs e)
+        {
+            OknoMagazyn okno = new OknoMagazyn(this.db);
+            if (okno.ShowDialog() == DialogResult.OK)
+            {
+                this.dataGridViewMagazyny.Refresh();
+            }
+        }
+
+        private void btnEdytujMagazyny_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewMagazyny.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewMagazyny.SelectedRows[0].Cells[0].ToString(), out id);
+
+                OknoMagazyn okno = new OknoMagazyn(id, this.db);
+                if (okno.ShowDialog() == DialogResult.OK)
+                {
+                    this.dataGridViewMagazyny.Refresh();
+                }
+            }
+        }
+
+        private void btnUsunMagazyny_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewMagazyny.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewMagazyny.SelectedRows[0].Cells[0].ToString(), out id);
+                try
+                {
+                    Magazyn mag = new Magazyn(id, this.db);
+                    mag.Usun();
+                    this.dataGridViewZamowienia.Refresh();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+        }
+
+        private void btnEdytujProdukty_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewProdukty.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].ToString(), out id);
+
+                OknoProdukt okno = new OknoProdukt(id, this.db);
+                if (okno.ShowDialog() == DialogResult.OK)
+                {
+                    this.dataGridViewProdukty.Refresh();
+                }
+            }
+        }
+
+        private void btnUsunProdukty_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewProdukty.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].ToString(), out id);
+                try
+                {
+                    Produkt prod = new Produkt(id, this.db);
+                    prod.Usun();
+                    this.dataGridViewProdukty.Refresh();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+        }
+
+        private void btnDodajPodmioty_Click(object sender, EventArgs e)
+        {
+            OknoPodmiot okno = new OknoPodmiot(this.db);
+            if (okno.ShowDialog() == DialogResult.OK)
+            {
+                this.dataGridViewPodmioty.Refresh();
+            }
+        }
+
+        private void btnEdytujPodmioty_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewPodmioty.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewPodmioty.SelectedRows[0].Cells[0].ToString(), out id);
+
+                OknoPodmiot okno = new OknoPodmiot(id, this.db);
+                if (okno.ShowDialog() == DialogResult.OK)
+                {
+                    this.dataGridViewPodmioty.Refresh();
+                }
+            }
+        }
+
+        private void btnUsunPodmioty_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewPodmioty.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewPodmioty.SelectedRows[0].Cells[0].ToString(), out id);
+                try
+                {
+                    Podmiot pod = new Podmiot(id, this.db);
+                    pod.Usun();
+                    this.dataGridViewPodmioty.Refresh();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+        }
+
+        private void btnDodajStatusy_Click(object sender, EventArgs e)
+        {
+            OknoStatus okno = new OknoStatus(this.db);
+            if (okno.ShowDialog() == DialogResult.OK)
+            {
+                this.dataGridViewStatusy.Refresh();
+            }
+        }
+
+        private void btnEdytujStatusy_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewStatusy.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewStatusy.SelectedRows[0].Cells[0].ToString(), out id);
+
+                OknoStatus okno = new OknoStatus(id, this.db);
+                if (okno.ShowDialog() == DialogResult.OK)
+                {
+                    this.dataGridViewStatusy.Refresh();
+                }
+            }
+        }
+
+        private void btnUsunStatusy_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewStatusy.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewStatusy.SelectedRows[0].Cells[0].ToString(), out id);
+                try
+                {
+                    Status st = new Status(id, this.db);
+                    st.Usun();
+                    this.dataGridViewStatusy.Refresh();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+        }
     }
 }

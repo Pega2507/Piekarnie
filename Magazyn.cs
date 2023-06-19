@@ -10,7 +10,7 @@ namespace Piekarnie
 {
     public class Magazyn
     {
-        private Int32 Id = 0;
+        public Int32 Id = 0;
         public String Nazwa = "";
         public Int32 PiekarniaId = 0;
 
@@ -82,6 +82,17 @@ namespace Piekarnie
             else
                 sql += "[piekarnia_id]=NULL";
             sql += " WHERE ID="+this.Id.ToString();
+        }
+
+        public void Usun()
+        {
+            String sql = "DELETE FROM [Magazyn] WHERE ID=" + this.Id.ToString();
+            try
+            { 
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("Magazyn -> Usun" + Environment.NewLine + ex.Message); }
         }
     }
 }

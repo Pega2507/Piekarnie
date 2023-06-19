@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.inpNazwa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.inpPiekarnie = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnZapisz = new System.Windows.Forms.Button();
             this.btnAnuluj = new System.Windows.Forms.Button();
@@ -63,13 +63,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Piekarnia:";
             // 
-            // comboBox1
+            // inpPiekarnie
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(78, 50);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(212, 23);
-            this.comboBox1.TabIndex = 2;
+            this.inpPiekarnie.FormattingEnabled = true;
+            this.inpPiekarnie.Location = new System.Drawing.Point(78, 50);
+            this.inpPiekarnie.Name = "inpPiekarnie";
+            this.inpPiekarnie.Size = new System.Drawing.Size(212, 23);
+            this.inpPiekarnie.TabIndex = 2;
             // 
             // panel1
             // 
@@ -89,6 +89,7 @@
             this.btnZapisz.TabIndex = 4;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
+            this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
             // 
             // btnAnuluj
             // 
@@ -106,7 +107,7 @@
             this.ClientSize = new System.Drawing.Size(302, 134);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.inpPiekarnie);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.inpNazwa);
             this.Controls.Add(this.label1);
@@ -114,6 +115,7 @@
             this.MinimumSize = new System.Drawing.Size(318, 173);
             this.Name = "OknoMagazyn";
             this.Text = "Magazyn";
+            this.Shown += new System.EventHandler(this.OknoMagazyn_Shown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -125,7 +127,7 @@
         private Label label1;
         private TextBox inpNazwa;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox inpPiekarnie;
         private Panel panel1;
         private Button btnZapisz;
         private Button btnAnuluj;
