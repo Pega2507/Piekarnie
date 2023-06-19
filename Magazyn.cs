@@ -38,7 +38,7 @@ namespace Piekarnie
         {
             if (this.Id > 0)
             {
-                String sql = "SELECT [Nazwa], [piekarnia_id]";
+                String sql = "SELECT [Nazwa], ISNULL([piekarnia_id], -1) AS piekarnia_id ";
                 sql += " FROM [Magazyn]  WHERE [ID]=" + this.Id.ToString();
 
                 try

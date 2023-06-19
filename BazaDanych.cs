@@ -10,6 +10,7 @@ namespace Piekarnie
     public class BazaDanych
     {
         private String serwer = @"localhost\SQLEXPRESS";
+        //private String serwer = @"localhost\SQL_2022";
         private String uzytkownik = "sa";
         private String haslo = "";
         private Boolean authWin = true;

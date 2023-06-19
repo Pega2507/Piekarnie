@@ -38,16 +38,16 @@
             btnZapisz = new Button();
             btnAnuluj = new Button();
             dataGridViewProdukty = new DataGridView();
-            label4 = new Label();
-            btnDodaj = new Button();
-            btnEdytuj = new Button();
-            btnUsun = new Button();
-            btnDodajPodmiot = new Button();
             ID = new DataGridViewTextBoxColumn();
             Nazwa = new DataGridViewTextBoxColumn();
             Ilosc = new DataGridViewTextBoxColumn();
             Cena = new DataGridViewTextBoxColumn();
             Wartosc = new DataGridViewTextBoxColumn();
+            label4 = new Label();
+            btnDodaj = new Button();
+            btnEdytuj = new Button();
+            btnUsun = new Button();
+            btnDodajPodmiot = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProdukty).BeginInit();
             SuspendLayout();
@@ -122,6 +122,7 @@
             btnZapisz.TabIndex = 8;
             btnZapisz.Text = "Zapisz";
             btnZapisz.UseVisualStyleBackColor = true;
+            btnZapisz.Click += btnZapisz_Click;
             // 
             // btnAnuluj
             // 
@@ -141,51 +142,6 @@
             dataGridViewProdukty.RowTemplate.Height = 25;
             dataGridViewProdukty.Size = new Size(694, 238);
             dataGridViewProdukty.TabIndex = 7;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(49, 120);
-            label4.Name = "label4";
-            label4.Size = new Size(58, 15);
-            label4.TabIndex = 8;
-            label4.Text = "Produkty:";
-            // 
-            // btnDodaj
-            // 
-            btnDodaj.Location = new Point(113, 364);
-            btnDodaj.Name = "btnDodaj";
-            btnDodaj.Size = new Size(75, 23);
-            btnDodaj.TabIndex = 4;
-            btnDodaj.Text = "Dodaj";
-            btnDodaj.UseVisualStyleBackColor = true;
-            // 
-            // btnEdytuj
-            // 
-            btnEdytuj.Location = new Point(194, 364);
-            btnEdytuj.Name = "btnEdytuj";
-            btnEdytuj.Size = new Size(75, 23);
-            btnEdytuj.TabIndex = 5;
-            btnEdytuj.Text = "Edytuj";
-            btnEdytuj.UseVisualStyleBackColor = true;
-            // 
-            // btnUsun
-            // 
-            btnUsun.Location = new Point(275, 364);
-            btnUsun.Name = "btnUsun";
-            btnUsun.Size = new Size(75, 23);
-            btnUsun.TabIndex = 6;
-            btnUsun.Text = "Usuń";
-            btnUsun.UseVisualStyleBackColor = true;
-            // 
-            // btnDodajPodmiot
-            // 
-            btnDodajPodmiot.Location = new Point(708, 12);
-            btnDodajPodmiot.Name = "btnDodajPodmiot";
-            btnDodajPodmiot.Size = new Size(75, 23);
-            btnDodajPodmiot.TabIndex = 9;
-            btnDodajPodmiot.Text = "Dodaj";
-            btnDodajPodmiot.UseVisualStyleBackColor = true;
             // 
             // ID
             // 
@@ -218,6 +174,54 @@
             Wartosc.HeaderText = "Wartość";
             Wartosc.Name = "Wartosc";
             Wartosc.ReadOnly = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(49, 120);
+            label4.Name = "label4";
+            label4.Size = new Size(58, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Produkty:";
+            // 
+            // btnDodaj
+            // 
+            btnDodaj.Location = new Point(113, 364);
+            btnDodaj.Name = "btnDodaj";
+            btnDodaj.Size = new Size(75, 23);
+            btnDodaj.TabIndex = 4;
+            btnDodaj.Text = "Dodaj";
+            btnDodaj.UseVisualStyleBackColor = true;
+            btnDodaj.Click += btnDodaj_Click;
+            // 
+            // btnEdytuj
+            // 
+            btnEdytuj.Location = new Point(194, 364);
+            btnEdytuj.Name = "btnEdytuj";
+            btnEdytuj.Size = new Size(75, 23);
+            btnEdytuj.TabIndex = 5;
+            btnEdytuj.Text = "Edytuj";
+            btnEdytuj.UseVisualStyleBackColor = true;
+            btnEdytuj.Click += btnEdytuj_Click;
+            // 
+            // btnUsun
+            // 
+            btnUsun.Location = new Point(275, 364);
+            btnUsun.Name = "btnUsun";
+            btnUsun.Size = new Size(75, 23);
+            btnUsun.TabIndex = 6;
+            btnUsun.Text = "Usuń";
+            btnUsun.UseVisualStyleBackColor = true;
+            btnUsun.Click += btnUsun_Click;
+            // 
+            // btnDodajPodmiot
+            // 
+            btnDodajPodmiot.Location = new Point(708, 12);
+            btnDodajPodmiot.Name = "btnDodajPodmiot";
+            btnDodajPodmiot.Size = new Size(75, 23);
+            btnDodajPodmiot.TabIndex = 9;
+            btnDodajPodmiot.Text = "Dodaj";
+            btnDodajPodmiot.UseVisualStyleBackColor = true;
             // 
             // OknoZamowienia
             // 

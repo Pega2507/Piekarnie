@@ -63,7 +63,7 @@ namespace Piekarnie
 
             try
             {
-                String sql = "SELECT [ID], [Nazwa] FROM [Status]  ORDER BY [Nazwa] ASC";
+                String sql = "SELECT [ID], [Nazwa] FROM [Statusy]  ORDER BY [Nazwa] ASC";
                 SqlCommand cmd = new SqlCommand(sql, db.Polaczenie);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(tab);

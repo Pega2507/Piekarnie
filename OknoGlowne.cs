@@ -1,9 +1,12 @@
+using System.Data;
+
 namespace Piekarnie
 {
     public partial class OknoGlowne : Form
     {
         public Uzytkownik uzytkownik = null;
         private BazaDanych db = null;
+        private Int32 MagId = 0;
         public OknoGlowne()
         {
             InitializeComponent();
@@ -15,6 +18,24 @@ namespace Piekarnie
                     Environment.Exit(0);
                 else
                     this.uzytkownik = logowanie.uzytkownik;
+
+                this.MagId = this.uzytkownik.MagazynId;
+                if (this.MagId == -1)
+                    this.MagId = 1;
+
+                Magazyn mag = new Magazyn(this.MagId, this.db);
+                this.inpZmienMagazyn.Items.Add(new PozycjaListyRozwijanej(this.MagId, mag.Nazwa));
+                this.inpZmienMagazyn.SelectedIndex = 0;
+
+                this.inpZmienMagazyn.Items.Clear();
+
+                foreach(DataRow magazyn in List.pobierzMagazyny(this.db).Rows)
+                {
+                    Int32 id = 0;
+                    Int32.TryParse(magazyn["ID"].ToString(), out id);
+                    this.inpZmienMagazyn.Items.Add(new PozycjaListyRozwijanej(id, magazyn["Nazwa"].ToString()));
+                }
+
                 this.lbFootUzytkownik.Text = "[" + this.uzytkownik.Login + "] " + this.uzytkownik.Imie + " " + this.uzytkownik.Nazwisko;
                 if (!this.uzytkownik.Zamowienia_podglad)
                 {
@@ -135,8 +156,8 @@ namespace Piekarnie
 
         private void btnDodajZamowienia_Click(object sender, EventArgs e)
         {
-            OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Piekarnia, this.db);
-            if(okno.ShowDialog()==DialogResult.OK)
+            OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Piekarnia, this.db, this.MagId);
+            if (okno.ShowDialog() == DialogResult.OK)
             {
                 this.dataGridViewZamowienia.Refresh();
             }
@@ -149,6 +170,51 @@ namespace Piekarnie
             {
                 this.dataGridViewProdukty.Refresh();
             }
+        }
+
+        private void btnDodajZamowienia_Click_1(object sender, EventArgs e)
+        {
+            OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Piekarnia, this.db, this.MagId);
+            if (okno.ShowDialog() == DialogResult.OK)
+            {
+                this.dataGridViewZamowienia.Refresh();
+            }
+        }
+
+        private void btnEdytujZamowienie_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewZamowienia.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewZamowienia.SelectedRows[0].Cells[0].ToString(), out id);
+
+                OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Piekarnia, id, this.db);
+                if (okno.ShowDialog() == DialogResult.OK)
+                {
+                    this.dataGridViewZamowienia.Refresh();
+                }
+            }
+        }
+
+        private void btnUsunZamowienie_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewZamowienia.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewZamowienia.SelectedRows[0].Cells[0].ToString(), out id);
+                try
+                {
+                    Zamowienie zam = new Zamowienie(id, this.db);
+                    zam.Usun();
+                    this.dataGridViewZamowienia.Refresh();
+                }
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+        }
+
+        private void inpZmienMagazyn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.MagId = (this.inpZmienMagazyn.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
         }
     }
 }

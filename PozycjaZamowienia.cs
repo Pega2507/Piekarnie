@@ -9,7 +9,7 @@ namespace Piekarnie
 {
     public class PozycjaZamowienia
     {
-        private Int32 Id = 0;
+        public Int32 Id = 0;
         public Int32 ProductId = 0;
         public Int32 ZamowienieId = 0;
         public Int32 Ilosc = 0;
@@ -28,7 +28,7 @@ namespace Piekarnie
                 this.db = db;
                 this.Pobierz();
             }
-            catch (Exception ex) { throw new Exception("Uzytkownik" + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("PozycjaZamowienia" + Environment.NewLine + ex.Message); }
 
         }
 
@@ -50,7 +50,49 @@ namespace Piekarnie
                     this.Cena = reader.GetDecimal(4);
                 }
             }
-            catch (Exception ex) { throw new Exception("Uzytkownik->PobierzUzytkownika" + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("PozycjaZamowienia->Pobierz" + Environment.NewLine + ex.Message); }
+        }
+
+        public void Usun()
+        {
+            String sql = "DELETE FROM [Zamowienie_produkty] WHERE [ID]="+this.Id.ToString();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("PozycjaZamowienia->Usun" + Environment.NewLine + ex.Message); }
+        }
+
+        public void Dodaj()
+        {
+            String sql = "INSERT INTO [Zamowienie_produkty] ([produkt_id], [ilosc], [cena], [zamowienie_id]) ";
+            sql += " VALUES ";
+            sql += "(" + this.ProductId.ToString() + ", " + this.Ilosc.ToString() + ",@p1," + this.ZamowienieId.ToString() + ")";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.Parameters.AddWithValue("@p1", this.Cena);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("PozycjaZamowienia->Dodaj" + Environment.NewLine + ex.Message); }
+        }
+
+        public void Edytuj()
+        {
+            String sql = "UPDATE [Zamowienie_produkty] SET ";
+            sql += "[ilosc]=" + this.Ilosc.ToString();
+            sql += ", [cena]=@p1 ";
+            sql += " WHERE [ID]=" + this.Id.ToString();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.Parameters.AddWithValue("@p1", this.Cena);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("PozycjaZamowienia->Edytuj" + Environment.NewLine + ex.Message); }
         }
     }
 }

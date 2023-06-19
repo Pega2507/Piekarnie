@@ -38,7 +38,7 @@ namespace Piekarnie
             if (this.Id > 0)
             {
                 String sql = "SELECT [Nazwa]";
-                sql += " FROM [Status]  WHERE [ID]=" + this.Id.ToString();
+                sql += " FROM [Statusy]  WHERE [ID]=" + this.Id.ToString();
                 try
                 {
                     SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
@@ -54,7 +54,7 @@ namespace Piekarnie
 
         public void Dodaj()
         {
-            String sql = "INSERT INTO [Status] ([Nazwa])";
+            String sql = "INSERT INTO [Statusy] ([Nazwa])";
             sql += " VALUES ";
             sql += "('" + this.Nazwa + "')";
             try
@@ -67,7 +67,7 @@ namespace Piekarnie
 
         public void Edytuj()
         {
-            String sql = "UPDATE [Status] SET ";
+            String sql = "UPDATE [Statusy] SET ";
             sql += "[Nazwa]='" + this.Nazwa + "' ";
             sql += " WHERE ID="+this.Id.ToString();
         }

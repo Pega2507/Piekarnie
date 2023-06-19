@@ -14,12 +14,14 @@ namespace Piekarnie
     {
         BazaDanych db = null;
         Zamowienie zam = null;
+        Int32 magId = 0;
         Int32 typPodmiotu = (int)TypPodmiotu.Piekarnia;
-        public OknoZamowienia(Int32 Typ, BazaDanych db)
+        public OknoZamowienia(Int32 Typ, BazaDanych db, Int32 magId)
         {
             InitializeComponent();
             this.db = db;
             this.typPodmiotu = Typ;
+            this.magId = magId;
         }
         public OknoZamowienia(Int32 Typ, Int32 Id, BazaDanych db)
         {
@@ -46,16 +48,14 @@ namespace Piekarnie
                     this.inpStatus.Items.Add(new PozycjaListyRozwijanej(this.zam.StatusId, stat.Nazwa));
 
                     this.inpData.Value = this.zam.Data;
-                    foreach(DataRow pozycja in List.pobierzPozycjeZam(this.zam.Id, this.db).Rows)
-                    {
-                        
-                    }
+
+                    this.dataGridViewProdukty.DataSource = List.pobierzPozycjeZam(this.zam.Id, this.db);
                 }
                 else
                 {
-                    this.inpPodmiot.Items.Add(new PozycjaListyRozwijanej(-1, "Wybiera"));
                     Status stat = new Status(1, this.db);
                     this.inpStatus.Items.Add(new PozycjaListyRozwijanej(1, stat.Nazwa));
+                    this.inpStatus.SelectedIndex = 0;
 
                     this.inpData.Value = DateTime.Now;
 
@@ -89,7 +89,7 @@ namespace Piekarnie
         {
             try
             {
-                if (this.inpStatus.Items.Count <= 1)
+                if (this.inpStatus.Items.Count <= 1 && this.zam!=null)
                 {
                     foreach (DataRow pod in List.pobierzStatusy(this.db).Rows)
                     {
@@ -98,6 +98,93 @@ namespace Piekarnie
                 }
             }
             catch (Exception ex) { }
+        }
+
+        private void btnUsun_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewProdukty.SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show("Czy napewno chcesz usunąć pozycję zamówienia?", "Usuwanie pozycji zamówienia", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //pobieramy id zaznaczonej pozycji
+                        Int32 id = 0;
+                        Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].ToString(), out id);
+
+                        PozycjaZamowienia poz = new PozycjaZamowienia(id, this.db);
+                        poz.Usun();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Zaznacz pozycję do usunięcia");
+            }
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            OknoPozycjiZamowienia poz = new OknoPozycjiZamowienia(this.db, this.zam.Id);
+
+            if (this.zam.Id == 0)
+            {
+                if ((this.inpPodmiot.SelectedItem as PozycjaListyRozwijanej).Identyfikator > 0)
+                {
+                    this.zam.Dodaj();
+                }
+                else
+                {
+                    MessageBox.Show("Przed dodniem pozycji wybierz podmiot");
+                    this.inpPodmiot.Focus();
+                }
+            }
+            if (poz.ShowDialog() == DialogResult.OK)
+            {
+                this.dataGridViewProdukty.Refresh();
+            }
+        }
+
+        private void btnEdytuj_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewProdukty.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].ToString(), out id);
+
+                OknoPozycjiZamowienia poz = new OknoPozycjiZamowienia(id, this.db);
+                if (poz.ShowDialog() == DialogResult.OK)
+                {
+                    this.dataGridViewProdukty.Refresh();
+                }
+            }
+        }
+
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.zam == null)
+                {
+                    this.zam = new Zamowienie(this.db);
+                    this.zam.MagazynId = this.magId;
+                    this.zam.Typ = this.typPodmiotu;
+                }
+
+                this.zam.Data = (DateTime)this.inpData.Value;
+                this.zam.StatusId = (this.inpStatus.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
+                this.zam.PodmiotId = (this.inpPodmiot.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
+
+                if (this.zam.Id == 0)
+                    this.zam.Dodaj();
+                else
+                    this.zam.Edytuj();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
     }
 }
