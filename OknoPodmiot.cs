@@ -36,6 +36,7 @@ namespace Piekarnie
         {
             this.inpTyp.Items.Add(new PozycjaListyRozwijanej((int)TypPodmiotu.Piekarnia, "Piekarnia"));
             this.inpTyp.Items.Add(new PozycjaListyRozwijanej((int)TypPodmiotu.Dostawca, "Dostawca"));
+            this.inpTyp.SelectedIndex = 0;
 
             if (this.podmiot != null)
             {
@@ -85,16 +86,29 @@ namespace Piekarnie
 
                     this.inpTyp.Focus();
             }
+            try
+            {
+                this.podmiot = new Podmiot(this.db);
+                this.podmiot.Adres = this.inpAdres.Text;
+                this.podmiot.Nazwa = this.inpNazwa.Text;
+                this.podmiot.Telefon = this.inpTelefon.Text;
+                this.podmiot.Typ = (this.inpTyp.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
 
-            this.podmiot = new Podmiot(this.db);
-            this.podmiot.Adres = this.inpAdres.Text;
-            this.podmiot.Nazwa= this.inpNazwa.Text;
-            this.podmiot.Telefon=this.inpTelefon.Text;
-            //typ i checkbox do zrobienia
-            if (this.podmiot.Id == 0)
-                this.podmiot.Dodaj();
-            else
-                this.podmiot.Edytuj();
+                if (this.podmiot.Id == 0)
+                {
+                    this.podmiot.Dodaj();
+                    if (this.podmiot.Typ == (int)TypPodmiotu.Piekarnia)
+                    {
+                        Magazyn mag = new Magazyn(this.db);
+                        mag.Nazwa = this.podmiot.Nazwa;
+                        mag.PiekarniaId = this.podmiot.Id;
+                        mag.Dodaj();
+                    }
+                }
+                else
+                    this.podmiot.Edytuj();
+            }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

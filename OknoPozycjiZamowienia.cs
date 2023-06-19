@@ -20,6 +20,12 @@ namespace Piekarnie
             InitializeComponent();
             this.db = db;
             this.zamId = zamId;
+
+            foreach(DataRow prod in List.pobierzProdukty(this.db).Rows)
+            {
+                this.inpProdukt.Items.Add(new PozycjaListyRozwijanej((int)prod["ID"], prod["Nazwa"].ToString()));
+            }
+
         }
         public OknoPozycjiZamowienia(Int32 id, BazaDanych db)
         {
@@ -46,6 +52,7 @@ namespace Piekarnie
             {
                 this.poz = new PozycjaZamowienia(this.db);
                 this.poz.ProductId = (this.inpProdukt.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
+                this.poz.ZamowienieId = this.zamId;
             }
             Int32 ilosc = 0;
             Int32.TryParse(this.inpIlosc.Text, out ilosc);
@@ -73,6 +80,7 @@ namespace Piekarnie
             {
                 this.poz.Edytuj();
             }
+            this.DialogResult = DialogResult.OK;
         }
     }
 }
