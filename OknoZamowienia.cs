@@ -49,7 +49,7 @@ namespace Piekarnie
 
                     this.inpData.Value = this.zam.Data;
 
-                    this.dataGridViewProdukty.DataSource = List.pobierzPozycjeZam(this.zam.Id, this.db);
+                    this.odswierzPozycje();
                 }
                 else
                 {
@@ -89,7 +89,7 @@ namespace Piekarnie
         {
             try
             {
-                if (this.inpStatus.Items.Count <= 1 && this.zam!=null)
+                if (this.inpStatus.Items.Count <= 1 && this.zam != null)
                 {
                     foreach (DataRow pod in List.pobierzStatusy(this.db).Rows)
                     {
@@ -129,12 +129,16 @@ namespace Piekarnie
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            OknoPozycjiZamowienia poz = new OknoPozycjiZamowienia(this.db, this.zam.Id);
 
-            if (this.zam.Id == 0)
+            if (this.zam == null)
             {
                 if ((this.inpPodmiot.SelectedItem as PozycjaListyRozwijanej).Identyfikator > 0)
                 {
+                    this.zam = new Zamowienie(this.db);
+                    this.zam.MagazynId = this.magId;
+                    this.zam.Typ = this.typPodmiotu;
+                    this.zam.Data = this.inpData.Value;
+                    this.zam.PodmiotId = (this.inpPodmiot.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
                     this.zam.Dodaj();
                 }
                 else
@@ -143,6 +147,8 @@ namespace Piekarnie
                     this.inpPodmiot.Focus();
                 }
             }
+
+            OknoPozycjiZamowienia poz = new OknoPozycjiZamowienia(this.db, this.zam.Id);
             if (poz.ShowDialog() == DialogResult.OK)
             {
                 this.dataGridViewProdukty.Refresh();
@@ -159,7 +165,7 @@ namespace Piekarnie
                 OknoPozycjiZamowienia poz = new OknoPozycjiZamowienia(id, this.db);
                 if (poz.ShowDialog() == DialogResult.OK)
                 {
-                    this.dataGridViewProdukty.Refresh();
+                    this.odswierzPozycje();
                 }
             }
         }
@@ -168,13 +174,6 @@ namespace Piekarnie
         {
             try
             {
-                if (this.zam == null)
-                {
-                    this.zam = new Zamowienie(this.db);
-                    this.zam.MagazynId = this.magId;
-                    this.zam.Typ = this.typPodmiotu;
-                }
-
                 this.zam.Data = (DateTime)this.inpData.Value;
                 this.zam.StatusId = (this.inpStatus.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
                 this.zam.PodmiotId = (this.inpPodmiot.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
@@ -186,5 +185,16 @@ namespace Piekarnie
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
+
+        private void odswierzPozycje()
+        {
+            try
+            {
+                this.dataGridViewProdukty.DataSource = List.pobierzPozycjeZam(this.zam.Id, this.db);
+                this.dataGridViewProdukty.Refresh();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
     }
 }

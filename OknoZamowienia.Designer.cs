@@ -38,16 +38,15 @@
             btnZapisz = new Button();
             btnAnuluj = new Button();
             dataGridViewProdukty = new DataGridView();
+            label4 = new Label();
+            btnDodaj = new Button();
+            btnEdytuj = new Button();
+            btnUsun = new Button();
             ID = new DataGridViewTextBoxColumn();
             Nazwa = new DataGridViewTextBoxColumn();
             Ilosc = new DataGridViewTextBoxColumn();
             Cena = new DataGridViewTextBoxColumn();
             Wartosc = new DataGridViewTextBoxColumn();
-            label4 = new Label();
-            btnDodaj = new Button();
-            btnEdytuj = new Button();
-            btnUsun = new Button();
-            btnDodajPodmiot = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProdukty).BeginInit();
             SuspendLayout();
@@ -66,7 +65,7 @@
             inpPodmiot.FormattingEnabled = true;
             inpPodmiot.Location = new Point(113, 12);
             inpPodmiot.Name = "inpPodmiot";
-            inpPodmiot.Size = new Size(589, 23);
+            inpPodmiot.Size = new Size(694, 23);
             inpPodmiot.TabIndex = 1;
             inpPodmiot.DropDown += inpPodmiot_DropDown;
             // 
@@ -143,38 +142,6 @@
             dataGridViewProdukty.Size = new Size(694, 238);
             dataGridViewProdukty.TabIndex = 7;
             // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Visible = false;
-            // 
-            // Nazwa
-            // 
-            Nazwa.HeaderText = "Produkt";
-            Nazwa.Name = "Nazwa";
-            Nazwa.ReadOnly = true;
-            Nazwa.Width = 300;
-            // 
-            // Ilosc
-            // 
-            Ilosc.HeaderText = "Ilość";
-            Ilosc.Name = "Ilosc";
-            Ilosc.ReadOnly = true;
-            // 
-            // Cena
-            // 
-            Cena.HeaderText = "Cena";
-            Cena.Name = "Cena";
-            Cena.ReadOnly = true;
-            // 
-            // Wartosc
-            // 
-            Wartosc.HeaderText = "Wartość";
-            Wartosc.Name = "Wartosc";
-            Wartosc.ReadOnly = true;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -214,14 +181,42 @@
             btnUsun.UseVisualStyleBackColor = true;
             btnUsun.Click += btnUsun_Click;
             // 
-            // btnDodajPodmiot
+            // ID
             // 
-            btnDodajPodmiot.Location = new Point(708, 12);
-            btnDodajPodmiot.Name = "btnDodajPodmiot";
-            btnDodajPodmiot.Size = new Size(75, 23);
-            btnDodajPodmiot.TabIndex = 9;
-            btnDodajPodmiot.Text = "Dodaj";
-            btnDodajPodmiot.UseVisualStyleBackColor = true;
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            // 
+            // Nazwa
+            // 
+            Nazwa.DataPropertyName = "Nazwa";
+            Nazwa.HeaderText = "Produkt";
+            Nazwa.Name = "Nazwa";
+            Nazwa.ReadOnly = true;
+            Nazwa.Width = 300;
+            // 
+            // Ilosc
+            // 
+            Ilosc.DataPropertyName = "ilosc";
+            Ilosc.HeaderText = "Ilość";
+            Ilosc.Name = "Ilosc";
+            Ilosc.ReadOnly = true;
+            // 
+            // Cena
+            // 
+            Cena.DataPropertyName = "cena";
+            Cena.HeaderText = "Cena";
+            Cena.Name = "Cena";
+            Cena.ReadOnly = true;
+            // 
+            // Wartosc
+            // 
+            Wartosc.DataPropertyName = "wartosc";
+            Wartosc.HeaderText = "Wartość";
+            Wartosc.Name = "Wartosc";
+            Wartosc.ReadOnly = true;
             // 
             // OknoZamowienia
             // 
@@ -230,7 +225,6 @@
             CancelButton = btnAnuluj;
             ClientSize = new Size(827, 455);
             ControlBox = false;
-            Controls.Add(btnDodajPodmiot);
             Controls.Add(btnUsun);
             Controls.Add(btnEdytuj);
             Controls.Add(btnDodaj);
@@ -270,7 +264,6 @@
         private Button btnDodaj;
         private Button btnEdytuj;
         private Button btnUsun;
-        private Button btnDodajPodmiot;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nazwa;
         private DataGridViewTextBoxColumn Ilosc;

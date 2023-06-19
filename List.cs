@@ -89,5 +89,20 @@ namespace Piekarnie
 
             return tab;
         }
+        public static DataTable pobierzProdukty(BazaDanych db)
+        {
+            DataTable tab = new DataTable();
+
+            try
+            {
+                String sql = "SELECT [ID], [Nazwa] ,[Opis] FROM [Produkt] ";
+                SqlCommand cmd = new SqlCommand(sql, db.Polaczenie);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(tab);
+            }
+            catch (Exception ex) { throw new Exception("List->pobierzProdukty " + Environment.NewLine + ex.Message); }
+
+            return tab;
+        }
     }
 }

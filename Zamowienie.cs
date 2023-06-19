@@ -31,7 +31,7 @@ namespace Piekarnie
                 this.db = db;
                 this.Pobierz();
             }
-            catch (Exception ex) { throw new Exception("Zamowienie" + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("Zamowienia" + Environment.NewLine + ex.Message); }
 
             this.db = db;
         }
@@ -40,7 +40,7 @@ namespace Piekarnie
         public void Pobierz()
         {
             String sql = "SELECT [Data], [podmiot_id], [typ], [status_id], [magazyn_id]";
-            sql += " FROM [Zamowienie] WHERE [ID]=" + this.Id.ToString();
+            sql += " FROM [Zamowienia] WHERE [ID]=" + this.Id.ToString();
             try
             {
                 SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
@@ -54,12 +54,12 @@ namespace Piekarnie
                     this.MagazynId = reader.GetInt32(4);
                 }
             }
-            catch (Exception ex) { throw new Exception("Zamowienie->PobierzZamowienie" + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("Zamowienia->PobierzZamowienie" + Environment.NewLine + ex.Message); }
         }
 
         public void Dodaj()
         {
-            String sql = "INSERT INTO [Zamowienie] ([Data], [podmiot_id], [typ], [status_id], [magazyn_id]) ";
+            String sql = "INSERT INTO [Zamowienia] ([Data], [podmiot_id], [typ], [status_id], [magazyn_id]) ";
             sql += " VALUES ";
             sql += "('" + this.Data.ToString("yyyy-MM-dd") + "'," + this.PodmiotId.ToString() + ", " + this.Typ.ToString() + ", " + this.StatusId.ToString() + ", "+this.MagazynId.ToString()+")";
             try
@@ -67,12 +67,12 @@ namespace Piekarnie
                 SqlCommand cmd = new SqlCommand(sql,this.db.Polaczenie);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex) { throw new Exception("Zamowienie->Dodaj" + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("Zamowienia->Dodaj" + Environment.NewLine + ex.Message); }
         }
 
         public void Edytuj()
         {
-            String sql = "UPDATE [Zamowienie] SET ";
+            String sql = "UPDATE [Zamowienia] SET ";
             sql += "[data]='" + this.Data.ToString("yyyy-MM-dd") + "'";
             sql += "[podmiot_id]=" + this.PodmiotId.ToString() + ", ";
             sql += "[typ]=" + this.Typ.ToString() + ", ";
@@ -83,12 +83,12 @@ namespace Piekarnie
                 SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex) { throw new Exception("Zamowienie->Edytuj" + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("Zamowienia->Edytuj" + Environment.NewLine + ex.Message); }
         }
 
         public void Usun()
         {
-            String sql = "DELETE FROM [Zamowienie] WHERE ID=" + this.Id.ToString();
+            String sql = "DELETE FROM [Zamowienia] WHERE ID=" + this.Id.ToString();
             try
             {
                 DataTable pozycje = List.pobierzPozycjeZam(this.Id, this.db);
@@ -102,7 +102,7 @@ namespace Piekarnie
                 SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex) { throw new Exception("Zamowienie->Edytuj" + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("Zamowienia->Edytuj" + Environment.NewLine + ex.Message); }
         }
     }
 }
