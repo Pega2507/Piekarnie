@@ -48,7 +48,10 @@ namespace Piekarnie
 
             try
             {
-                String sql = "SELECT [ID], [Nazwa],[Adres] ,[Telefon] FROM [Podmiot] WHERE [Typ]=" + Typ.ToString() + " ORDER BY [Nazwa] ASC";
+                String sql = "SELECT [ID], [Nazwa],[Adres] ,[Telefon] FROM [Podmiot] ";
+                if (Typ >= 0)
+                    sql += " WHERE [Typ]=" + Typ.ToString();
+                sql += " ORDER BY [Nazwa] ASC";
                 SqlCommand cmd = new SqlCommand(sql, db.Polaczenie);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(tab);

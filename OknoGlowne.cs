@@ -7,6 +7,7 @@ namespace Piekarnie
         public Uzytkownik uzytkownik = null;
         private BazaDanych db = null;
         private Int32 MagId = 0;
+        private Int32 typPodmiotu = 1;
         public OknoGlowne()
         {
             InitializeComponent();
@@ -36,6 +37,10 @@ namespace Piekarnie
                     this.inpZmienMagazyn.Items.Add(new PozycjaListyRozwijanej(id, magazyn["Nazwa"].ToString()));
                 }
 
+                this.inpTypPodmiotu.Items.Add(new PozycjaListyRozwijanej((int)TypPodmiotu.Piekarnia, "Piekarnia"));
+                this.inpTypPodmiotu.SelectedIndex = 0;
+                this.inpTypPodmiotu.Items.Add(new PozycjaListyRozwijanej((int)TypPodmiotu.Dostawca, "Dostawca"));
+
                 this.lbFootUzytkownik.Text = "[" + this.uzytkownik.Login + "] " + this.uzytkownik.Imie + " " + this.uzytkownik.Nazwisko;
                 if (!this.uzytkownik.Zamowienia_podglad)
                 {
@@ -52,22 +57,36 @@ namespace Piekarnie
                 {
                     this.tabControl1.TabPages.Remove(this.tabProdukty);
                 }
+                else
+                    this.odswiezListeUzytkownikow();
                 if (!this.uzytkownik.Magazyn_podglad)
                 {
                     this.tabControl1.TabPages.Remove(this.tabMagazyny);
                 }
+                else
+                    this.odswiezListeMagazynow();
                 if (!this.uzytkownik.Podmiot_podglad)
                 {
                     this.tabControl1.TabPages.Remove(this.tabPodmioty);
+                }
+                else
+                {
+                    if (this.uzytkownik.MagazynId > 0)
+                        this.inpTypPodmiotu.Visible = false;
+                    this.odswiezListePodmiotow();
                 }
                 if (!this.uzytkownik.Status_podglad)
                 {
                     this.tabControl1.TabPages.Remove(this.tabStatusy);
                 }
+                else
+                    this.odswiezListeStatusow();
                 if (!this.uzytkownik.Uzytkownik_podglad)
                 {
                     this.tabControl1.TabPages.Remove(this.tabUzytkownicy);
                 }
+                else
+                    this.odswiezListeUzytkownikow();
 
             }
             catch (Exception ex) { Environment.Exit(0); }
@@ -115,7 +134,7 @@ namespace Piekarnie
             OknoUzytkownika okno = new OknoUzytkownika(this.db);
             if (okno.ShowDialog() == DialogResult.OK)
             {
-                this.dataGridViewUzytkownik.Refresh();
+                this.odswiezListeUzytkownikow();
             }
         }
 
@@ -124,13 +143,13 @@ namespace Piekarnie
             if (this.dataGridViewUzytkownik.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewUzytkownik.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewUzytkownik.SelectedRows[0].Cells[0].Value.ToString(), out id);
                 if (id > 0)
                 {
                     OknoUzytkownika okno = new OknoUzytkownika(id, this.db);
                     if (okno.ShowDialog() == DialogResult.OK)
                     {
-                        this.dataGridViewUzytkownik.Refresh();
+                        this.odswiezListeUzytkownikow();
                     }
                 }
             }
@@ -141,14 +160,14 @@ namespace Piekarnie
             if (this.dataGridViewUzytkownik.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewUzytkownik.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewUzytkownik.SelectedRows[0].Cells[0].Value.ToString(), out id);
                 if (id > 0)
                 {
                     try
                     {
                         Uzytkownik uzyt = new Uzytkownik(id, this.db);
                         uzyt.Usun();
-                        this.dataGridViewUzytkownik.Refresh();
+                        this.odswiezListeUzytkownikow();
                     }
                     catch (Exception ex) { MessageBox.Show(ex.Message, "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
@@ -169,7 +188,7 @@ namespace Piekarnie
             OknoProdukt produkt = new OknoProdukt(this.db);
             if (produkt.ShowDialog() == DialogResult.OK)
             {
-                this.dataGridViewProdukty.Refresh();
+                this.odswiezListeProduktow();
             }
         }
 
@@ -224,7 +243,7 @@ namespace Piekarnie
             OknoMagazyn okno = new OknoMagazyn(this.db);
             if (okno.ShowDialog() == DialogResult.OK)
             {
-                this.dataGridViewMagazyny.Refresh();
+                this.odswiezListeMagazynow();
             }
         }
 
@@ -233,12 +252,12 @@ namespace Piekarnie
             if (this.dataGridViewMagazyny.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewMagazyny.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewMagazyny.SelectedRows[0].Cells[0].Value.ToString(), out id);
 
                 OknoMagazyn okno = new OknoMagazyn(id, this.db);
                 if (okno.ShowDialog() == DialogResult.OK)
                 {
-                    this.dataGridViewMagazyny.Refresh();
+                    this.odswiezListeMagazynow();
                 }
             }
         }
@@ -248,12 +267,12 @@ namespace Piekarnie
             if (this.dataGridViewMagazyny.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewMagazyny.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewMagazyny.SelectedRows[0].Cells[0].Value.ToString(), out id);
                 try
                 {
                     Magazyn mag = new Magazyn(id, this.db);
                     mag.Usun();
-                    this.dataGridViewZamowienia.Refresh();
+                    this.odswiezListeMagazynow();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
@@ -264,12 +283,12 @@ namespace Piekarnie
             if (this.dataGridViewProdukty.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].Value.ToString(), out id);
 
                 OknoProdukt okno = new OknoProdukt(id, this.db);
                 if (okno.ShowDialog() == DialogResult.OK)
                 {
-                    this.dataGridViewProdukty.Refresh();
+                    this.odswiezListeProduktow();
                 }
             }
         }
@@ -279,12 +298,12 @@ namespace Piekarnie
             if (this.dataGridViewProdukty.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].Value.ToString(), out id);
                 try
                 {
                     Produkt prod = new Produkt(id, this.db);
                     prod.Usun();
-                    this.dataGridViewProdukty.Refresh();
+                    this.odswiezListeProduktow();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
@@ -295,7 +314,7 @@ namespace Piekarnie
             OknoPodmiot okno = new OknoPodmiot(this.db);
             if (okno.ShowDialog() == DialogResult.OK)
             {
-                this.dataGridViewPodmioty.Refresh();
+                this.odswiezListePodmiotow();
             }
         }
 
@@ -304,12 +323,12 @@ namespace Piekarnie
             if (this.dataGridViewPodmioty.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewPodmioty.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewPodmioty.SelectedRows[0].Cells[0].Value.ToString(), out id);
 
                 OknoPodmiot okno = new OknoPodmiot(id, this.db);
                 if (okno.ShowDialog() == DialogResult.OK)
                 {
-                    this.dataGridViewPodmioty.Refresh();
+                    this.odswiezListePodmiotow();
                 }
             }
         }
@@ -319,12 +338,12 @@ namespace Piekarnie
             if (this.dataGridViewPodmioty.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewPodmioty.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewPodmioty.SelectedRows[0].Cells[0].Value.ToString(), out id);
                 try
                 {
                     Podmiot pod = new Podmiot(id, this.db);
                     pod.Usun();
-                    this.dataGridViewPodmioty.Refresh();
+                    this.odswiezListePodmiotow(); ;
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
@@ -335,7 +354,7 @@ namespace Piekarnie
             OknoStatus okno = new OknoStatus(this.db);
             if (okno.ShowDialog() == DialogResult.OK)
             {
-                this.dataGridViewStatusy.Refresh();
+                this.odswiezListeStatusow();
             }
         }
 
@@ -344,12 +363,12 @@ namespace Piekarnie
             if (this.dataGridViewStatusy.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewStatusy.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewStatusy.SelectedRows[0].Cells[0].Value.ToString(), out id);
 
                 OknoStatus okno = new OknoStatus(id, this.db);
                 if (okno.ShowDialog() == DialogResult.OK)
                 {
-                    this.dataGridViewStatusy.Refresh();
+                    this.odswiezListeStatusow();
                 }
             }
         }
@@ -359,12 +378,12 @@ namespace Piekarnie
             if (this.dataGridViewStatusy.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewStatusy.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewStatusy.SelectedRows[0].Cells[0].Value.ToString(), out id);
                 try
                 {
                     Status st = new Status(id, this.db);
                     st.Usun();
-                    this.dataGridViewStatusy.Refresh();
+                    this.odswiezListeStatusow();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
@@ -423,6 +442,37 @@ namespace Piekarnie
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
+        }
+        private void odswiezListeUzytkownikow()
+        {
+            this.dataGridViewUzytkownik.DataSource = List.pobierzUzytkownikow(this.db);
+            this.dataGridViewUzytkownik.Refresh();
+        }
+        private void odswiezListeStatusow()
+        {
+            this.dataGridViewStatusy.DataSource = List.pobierzStatusy(this.db);
+            this.dataGridViewStatusy.Refresh();
+        }
+        private void odswiezListePodmiotow()
+        {
+            this.dataGridViewPodmioty.DataSource = List.pobierzPodmioty(this.typPodmiotu, this.db);
+            this.dataGridViewPodmioty.Refresh();
+        }
+        private void odswiezListeProduktow()
+        {
+            this.dataGridViewProdukty.DataSource = List.pobierzProdukty(this.db);
+            this.dataGridViewProdukty.Refresh();
+        }
+        private void odswiezListeMagazynow()
+        {
+            this.dataGridViewMagazyny.DataSource = List.pobierzMagazyny(this.db);
+            this.dataGridViewMagazyny.Refresh();
+        }
+
+        private void inpTypPodmiotu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.typPodmiotu = (this.inpTypPodmiotu.SelectedItem as PozycjaListyRozwijanej).Identyfikator;
+            this.odswiezListePodmiotow();
         }
     }
 }

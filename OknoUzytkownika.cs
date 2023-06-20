@@ -99,7 +99,7 @@ namespace Piekarnie
             }
 
             Boolean newUzytkownik = false;
-            if (this.uzyt != null)
+            if (this.uzyt == null)
             {
                 this.uzyt = new Uzytkownik(this.db);
                 newUzytkownik = true;

@@ -53,6 +53,8 @@
             btnEdytujProdukty = new Button();
             btnDodajProdukty = new Button();
             tabPodmioty = new TabPage();
+            label2 = new Label();
+            inpTypPodmiotu = new ComboBox();
             btnUsunPodmioty = new Button();
             btnEdytujPodmioty = new Button();
             btnDodajPodmioty = new Button();
@@ -86,13 +88,25 @@
             dataGridViewMagazyny = new DataGridView();
             tabProduktyTab = new TabPage();
             dataGridViewProdukty = new DataGridView();
+            prID = new DataGridViewTextBoxColumn();
+            prNazwa = new DataGridViewTextBoxColumn();
             tabPodmiotyTab = new TabPage();
             dataGridViewPodmioty = new DataGridView();
+            pdId = new DataGridViewTextBoxColumn();
+            pdNazwa = new DataGridViewTextBoxColumn();
+            pdAdres = new DataGridViewTextBoxColumn();
+            pdTelefon = new DataGridViewTextBoxColumn();
             tabStatusyTab = new TabPage();
             dataGridViewStatusy = new DataGridView();
+            stID = new DataGridViewTextBoxColumn();
+            stNazwa = new DataGridViewTextBoxColumn();
             tabUzytkownikTab = new TabPage();
             dataGridViewUzytkownik = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
+            uzID = new DataGridViewTextBoxColumn();
+            uzLogin = new DataGridViewTextBoxColumn();
+            uzImie = new DataGridViewTextBoxColumn();
+            uzNazwisko = new DataGridViewTextBoxColumn();
+            uzAktywny = new DataGridViewTextBoxColumn();
             Login = new DataGridViewTextBoxColumn();
             Imię = new DataGridViewTextBoxColumn();
             Nazwisko = new DataGridViewTextBoxColumn();
@@ -101,6 +115,10 @@
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            mgID = new DataGridViewTextBoxColumn();
+            mgNazwa = new DataGridViewTextBoxColumn();
+            mgPiekarniaId = new DataGridViewTextBoxColumn();
+            mgPiekarnia = new DataGridViewTextBoxColumn();
             statusStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabZamowienia.SuspendLayout();
@@ -367,6 +385,8 @@
             // 
             // tabPodmioty
             // 
+            tabPodmioty.Controls.Add(label2);
+            tabPodmioty.Controls.Add(inpTypPodmiotu);
             tabPodmioty.Controls.Add(btnUsunPodmioty);
             tabPodmioty.Controls.Add(btnEdytujPodmioty);
             tabPodmioty.Controls.Add(btnDodajPodmioty);
@@ -376,6 +396,24 @@
             tabPodmioty.TabIndex = 4;
             tabPodmioty.Text = "Podmioty";
             tabPodmioty.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(265, 30);
+            label2.Name = "label2";
+            label2.Size = new Size(84, 15);
+            label2.TabIndex = 7;
+            label2.Text = "Typ podmiotu:";
+            // 
+            // inpTypPodmiotu
+            // 
+            inpTypPodmiotu.FormattingEnabled = true;
+            inpTypPodmiotu.Location = new Point(355, 27);
+            inpTypPodmiotu.Name = "inpTypPodmiotu";
+            inpTypPodmiotu.Size = new Size(194, 23);
+            inpTypPodmiotu.TabIndex = 6;
+            inpTypPodmiotu.SelectedIndexChanged += inpTypPodmiotu_SelectedIndexChanged;
             // 
             // btnUsunPodmioty
             // 
@@ -662,6 +700,7 @@
             // dataGridViewMagazyny
             // 
             dataGridViewMagazyny.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMagazyny.Columns.AddRange(new DataGridViewColumn[] { mgID, mgNazwa, mgPiekarniaId, mgPiekarnia });
             dataGridViewMagazyny.Dock = DockStyle.Fill;
             dataGridViewMagazyny.Location = new Point(3, 3);
             dataGridViewMagazyny.Name = "dataGridViewMagazyny";
@@ -683,12 +722,29 @@
             // dataGridViewProdukty
             // 
             dataGridViewProdukty.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewProdukty.Columns.AddRange(new DataGridViewColumn[] { prID, prNazwa });
             dataGridViewProdukty.Dock = DockStyle.Fill;
             dataGridViewProdukty.Location = new Point(3, 3);
             dataGridViewProdukty.Name = "dataGridViewProdukty";
             dataGridViewProdukty.RowTemplate.Height = 25;
             dataGridViewProdukty.Size = new Size(962, 306);
             dataGridViewProdukty.TabIndex = 0;
+            // 
+            // prID
+            // 
+            prID.DataPropertyName = "ID";
+            prID.HeaderText = "ID";
+            prID.Name = "prID";
+            prID.ReadOnly = true;
+            prID.Visible = false;
+            // 
+            // prNazwa
+            // 
+            prNazwa.DataPropertyName = "Nazwa";
+            prNazwa.HeaderText = "Nazwa";
+            prNazwa.Name = "prNazwa";
+            prNazwa.ReadOnly = true;
+            prNazwa.Width = 400;
             // 
             // tabPodmiotyTab
             // 
@@ -704,12 +760,44 @@
             // dataGridViewPodmioty
             // 
             dataGridViewPodmioty.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewPodmioty.Columns.AddRange(new DataGridViewColumn[] { pdId, pdNazwa, pdAdres, pdTelefon });
             dataGridViewPodmioty.Dock = DockStyle.Fill;
             dataGridViewPodmioty.Location = new Point(3, 3);
             dataGridViewPodmioty.Name = "dataGridViewPodmioty";
             dataGridViewPodmioty.RowTemplate.Height = 25;
             dataGridViewPodmioty.Size = new Size(962, 306);
             dataGridViewPodmioty.TabIndex = 0;
+            // 
+            // pdId
+            // 
+            pdId.DataPropertyName = "ID";
+            pdId.HeaderText = "ID";
+            pdId.Name = "pdId";
+            pdId.ReadOnly = true;
+            pdId.Visible = false;
+            // 
+            // pdNazwa
+            // 
+            pdNazwa.DataPropertyName = "Nazwa";
+            pdNazwa.HeaderText = "Nazwa";
+            pdNazwa.Name = "pdNazwa";
+            pdNazwa.ReadOnly = true;
+            pdNazwa.Width = 300;
+            // 
+            // pdAdres
+            // 
+            pdAdres.DataPropertyName = "Adres";
+            pdAdres.HeaderText = "Adres";
+            pdAdres.Name = "pdAdres";
+            pdAdres.ReadOnly = true;
+            pdAdres.Width = 500;
+            // 
+            // pdTelefon
+            // 
+            pdTelefon.DataPropertyName = "Telefon";
+            pdTelefon.HeaderText = "Telefon";
+            pdTelefon.Name = "pdTelefon";
+            pdTelefon.ReadOnly = true;
             // 
             // tabStatusyTab
             // 
@@ -725,12 +813,28 @@
             // dataGridViewStatusy
             // 
             dataGridViewStatusy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewStatusy.Columns.AddRange(new DataGridViewColumn[] { stID, stNazwa });
             dataGridViewStatusy.Dock = DockStyle.Fill;
             dataGridViewStatusy.Location = new Point(3, 3);
             dataGridViewStatusy.Name = "dataGridViewStatusy";
             dataGridViewStatusy.RowTemplate.Height = 25;
             dataGridViewStatusy.Size = new Size(962, 306);
             dataGridViewStatusy.TabIndex = 0;
+            // 
+            // stID
+            // 
+            stID.DataPropertyName = "ID";
+            stID.HeaderText = "Id";
+            stID.Name = "stID";
+            stID.ReadOnly = true;
+            stID.Visible = false;
+            // 
+            // stNazwa
+            // 
+            stNazwa.DataPropertyName = "Nazwa";
+            stNazwa.HeaderText = "Nazwa";
+            stNazwa.Name = "stNazwa";
+            stNazwa.ReadOnly = true;
             // 
             // tabUzytkownikTab
             // 
@@ -745,7 +849,7 @@
             // dataGridViewUzytkownik
             // 
             dataGridViewUzytkownik.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewUzytkownik.Columns.AddRange(new DataGridViewColumn[] { ID });
+            dataGridViewUzytkownik.Columns.AddRange(new DataGridViewColumn[] { uzID, uzLogin, uzImie, uzNazwisko, uzAktywny });
             dataGridViewUzytkownik.Dock = DockStyle.Fill;
             dataGridViewUzytkownik.Location = new Point(0, 0);
             dataGridViewUzytkownik.Name = "dataGridViewUzytkownik";
@@ -753,11 +857,40 @@
             dataGridViewUzytkownik.Size = new Size(968, 312);
             dataGridViewUzytkownik.TabIndex = 0;
             // 
-            // ID
+            // uzID
             // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.Visible = false;
+            uzID.DataPropertyName = "ID";
+            uzID.HeaderText = "ID";
+            uzID.Name = "uzID";
+            uzID.Visible = false;
+            // 
+            // uzLogin
+            // 
+            uzLogin.DataPropertyName = "Login";
+            uzLogin.HeaderText = "Login";
+            uzLogin.Name = "uzLogin";
+            uzLogin.ReadOnly = true;
+            // 
+            // uzImie
+            // 
+            uzImie.DataPropertyName = "Imie";
+            uzImie.HeaderText = "Imie";
+            uzImie.Name = "uzImie";
+            uzImie.ReadOnly = true;
+            // 
+            // uzNazwisko
+            // 
+            uzNazwisko.DataPropertyName = "Nazwisko";
+            uzNazwisko.HeaderText = "Nazwisko";
+            uzNazwisko.Name = "uzNazwisko";
+            uzNazwisko.ReadOnly = true;
+            // 
+            // uzAktywny
+            // 
+            uzAktywny.DataPropertyName = "aktywny";
+            uzAktywny.HeaderText = "Aktywny";
+            uzAktywny.Name = "uzAktywny";
+            uzAktywny.ReadOnly = true;
             // 
             // Login
             // 
@@ -809,6 +942,38 @@
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
             // 
+            // mgID
+            // 
+            mgID.DataPropertyName = "ID";
+            mgID.HeaderText = "ID";
+            mgID.Name = "mgID";
+            mgID.ReadOnly = true;
+            mgID.Visible = false;
+            // 
+            // mgNazwa
+            // 
+            mgNazwa.DataPropertyName = "Nazwa";
+            mgNazwa.HeaderText = "Nazwa";
+            mgNazwa.Name = "mgNazwa";
+            mgNazwa.ReadOnly = true;
+            mgNazwa.Width = 200;
+            // 
+            // mgPiekarniaId
+            // 
+            mgPiekarniaId.DataPropertyName = "piekarnia_id";
+            mgPiekarniaId.HeaderText = "piekarnia_id";
+            mgPiekarniaId.Name = "mgPiekarniaId";
+            mgPiekarniaId.ReadOnly = true;
+            mgPiekarniaId.Visible = false;
+            // 
+            // mgPiekarnia
+            // 
+            mgPiekarnia.DataPropertyName = "Piekarnia";
+            mgPiekarnia.HeaderText = "Piekarnia";
+            mgPiekarnia.Name = "mgPiekarnia";
+            mgPiekarnia.ReadOnly = true;
+            mgPiekarnia.Width = 300;
+            // 
             // OknoGlowne
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -828,6 +993,7 @@
             tabMagazyny.ResumeLayout(false);
             tabProdukty.ResumeLayout(false);
             tabPodmioty.ResumeLayout(false);
+            tabPodmioty.PerformLayout();
             tabStatusy.ResumeLayout(false);
             tabUzytkownicy.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -904,7 +1070,6 @@
         private DataGridView dataGridViewProdukty;
         private DataGridView dataGridViewPodmioty;
         private DataGridView dataGridViewStatusy;
-        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
@@ -925,5 +1090,24 @@
         private DataGridViewTextBoxColumn zamdStatusId;
         private DataGridViewTextBoxColumn zamdPodmiot;
         private DataGridViewTextBoxColumn zamdStatus;
+        private DataGridViewTextBoxColumn uzID;
+        private DataGridViewTextBoxColumn uzLogin;
+        private DataGridViewTextBoxColumn uzImie;
+        private DataGridViewTextBoxColumn uzNazwisko;
+        private DataGridViewTextBoxColumn uzAktywny;
+        private DataGridViewTextBoxColumn stID;
+        private DataGridViewTextBoxColumn stNazwa;
+        private DataGridViewTextBoxColumn pdId;
+        private DataGridViewTextBoxColumn pdNazwa;
+        private DataGridViewTextBoxColumn pdAdres;
+        private DataGridViewTextBoxColumn pdTelefon;
+        private Label label2;
+        private ComboBox inpTypPodmiotu;
+        private DataGridViewTextBoxColumn prID;
+        private DataGridViewTextBoxColumn prNazwa;
+        private DataGridViewTextBoxColumn mgID;
+        private DataGridViewTextBoxColumn mgNazwa;
+        private DataGridViewTextBoxColumn mgPiekarniaId;
+        private DataGridViewTextBoxColumn mgPiekarnia;
     }
 }

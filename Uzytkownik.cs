@@ -107,20 +107,34 @@ namespace Piekarnie
 
         public void Dodaj()
         {
-            String sql = "INSERT INTO [Uzytkownik] ([Login],[Imie] ,[Nazwisko] ,[haslo] ,[data] ,[magazyn_id] ,[zamowienia_podglad] ,[zamowienia_edycja] ,[produkty_podglad] ,[produkty_edycja] ,[magazyny_podglad] ,[magazyny_edycja] ,[podmiot_podglad] ,[podmiot_edycja], [aktywny], [statusy_podglad], [statusy_edycja], [uzytkonicy_podglad], [uzytkownicy_edycja], [historia_podglad]) ";
+            String sql = "INSERT INTO [Uzytkownik] ([Login],[Imie] ,[Nazwisko] ,[haslo] ,[data] ,[magazyn_id] ,[zamowienia_podglad] ,[zamowienia_edycja] ,[produkty_podglad] ,[produkty_edycja] ,[magazyny_podglad] ,[magazyny_edycja] ,[podmiot_podglad] ,[podmiot_edycja], [aktywny], [statusy_podglad], [statusy_edycja], [uzytkownicy_podglad], [uzytkownicy_edycja], [historia_podglad]) ";
             sql += " VALUES ";
             sql += "('" + this.Login + "','" + this.Imie + "','" + this.Nazwisko + "','" + this.Haslo + "',GETDATE(),";
             if (this.MagazynId > 0)
                 sql += this.MagazynId.ToString() + ",";
             else
                 sql += "NULL,";
-            sql += this.Zamowienia_podglad.ToString()+", "+this.Zamowienia_edycja.ToString()+","+this.Produkty_podglad.ToString()+","+this.Produkty_edycja.ToString()+",";
-            sql += this.Magazyn_podglad.ToString() + "," + this.Magazyn_edycja.ToString() + "," + this.Podmiot_podglad.ToString() + "," + this.Podmiot_edycja.ToString() + ", " + this.Aktywny.ToString() + ", ";
-            sql += this.Status_podglad.ToString() + ", " + this.Status_edycja.ToString() + ", " + this.Uzytkownik_podglad.ToString() + ", " + this.Uzytkownik_edycja.ToString() + ", " + this.Historia_podglad.ToString() + ")";
+            sql += "@p1, @p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14)";
+
 
             try
             {
                 SqlCommand cmd = new SqlCommand(sql,this.db.Polaczenie);
+                cmd.Parameters.AddWithValue("@p1", this.Zamowienia_podglad);
+                cmd.Parameters.AddWithValue("@p2", this.Zamowienia_edycja);
+                cmd.Parameters.AddWithValue("@p3", this.Produkty_podglad);
+                cmd.Parameters.AddWithValue("@p4", this.Produkty_edycja);
+                cmd.Parameters.AddWithValue("@p5", this.Magazyn_podglad);
+                cmd.Parameters.AddWithValue("@p6", this.Magazyn_edycja);
+                cmd.Parameters.AddWithValue("@p7", this.Podmiot_podglad);
+                cmd.Parameters.AddWithValue("@p8", this.Podmiot_edycja);
+                cmd.Parameters.AddWithValue("@p9", this.Aktywny);
+                cmd.Parameters.AddWithValue("@p10", this.Status_podglad);
+                cmd.Parameters.AddWithValue("@p11", this.Status_edycja);
+                cmd.Parameters.AddWithValue("@p12", this.Uzytkownik_podglad);
+                cmd.Parameters.AddWithValue("@p13", this.Uzytkownik_edycja);
+                cmd.Parameters.AddWithValue("@p14", this.Historia_podglad);
+
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex) { throw new Exception("Uzytkownik->Dodaj" + Environment.NewLine + ex.Message); }
@@ -137,24 +151,38 @@ namespace Piekarnie
                 sql += "[magazyn_id]=" + this.MagazynId.ToString();
             else
                 sql += "[magazyn_id]=NULL";
-            sql += ",[zamowienia_podglad]=" + this.Zamowienia_podglad.ToString();
-            sql += ",[zamowienia_edycja]=" + this.Zamowienia_edycja.ToString();
-            sql += ",[produkty_podglad]=" + this.Produkty_podglad.ToString();
-            sql += ",[produkty_edycja]=" + this.Produkty_edycja.ToString();
-            sql += ",[magazyny_podglad]=" + this.Magazyn_podglad.ToString();
-            sql += ",[produkty_edycja]=" + this.Magazyn_edycja.ToString();
-            sql += ",[podmiot_podglad]=" + this.Podmiot_podglad.ToString();
-            sql += ",[podmiot_edycja]=" + this.Podmiot_edycja.ToString();
-            sql += ",[aktywny]=" + this.Aktywny.ToString();
-            sql += ",[statusy_podglad]=" + this.Status_podglad.ToString();
-            sql += ",[statusy_edycja]=" + this.Status_edycja.ToString();
-            sql += ",[uzytkownicy_podglad]=" + this.Uzytkownik_podglad.ToString();
-            sql += ",[uzytkownicy_edycja]=" + this.Uzytkownik_edycja.ToString();
-            sql += ",[historia_podglad]=" + this.Historia_podglad.ToString();
+            sql += ",[zamowienia_podglad]=@p1";
+            sql += ",[zamowienia_edycja]=@p2";
+            sql += ",[produkty_podglad]=@p3";
+            sql += ",[produkty_edycja]=@p4";
+            sql += ",[magazyny_podglad]=@p5";
+            sql += ",[produkty_edycja]=@p6";
+            sql += ",[podmiot_podglad]=@p7";
+            sql += ",[podmiot_edycja]=@p8";
+            sql += ",[aktywny]=@p9";
+            sql += ",[statusy_podglad]=@p10";
+            sql += ",[statusy_edycja]=@p11";
+            sql += ",[uzytkownicy_podglad]=@p12";
+            sql += ",[uzytkownicy_edycja]=@p13";
+            sql += ",[historia_podglad]=@p14";
             sql += " WHERE ID="+this.Id.ToString();
             try
             {
                 SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.Parameters.AddWithValue("@p1", this.Zamowienia_podglad);
+                cmd.Parameters.AddWithValue("@p2", this.Zamowienia_edycja);
+                cmd.Parameters.AddWithValue("@p3", this.Produkty_podglad);
+                cmd.Parameters.AddWithValue("@p4", this.Produkty_edycja);
+                cmd.Parameters.AddWithValue("@p5", this.Magazyn_podglad);
+                cmd.Parameters.AddWithValue("@p6", this.Magazyn_edycja);
+                cmd.Parameters.AddWithValue("@p7", this.Podmiot_podglad);
+                cmd.Parameters.AddWithValue("@p8", this.Podmiot_edycja);
+                cmd.Parameters.AddWithValue("@p9", this.Aktywny);
+                cmd.Parameters.AddWithValue("@p10", this.Status_podglad);
+                cmd.Parameters.AddWithValue("@p11", this.Status_edycja);
+                cmd.Parameters.AddWithValue("@p12", this.Uzytkownik_podglad);
+                cmd.Parameters.AddWithValue("@p13", this.Uzytkownik_edycja);
+                cmd.Parameters.AddWithValue("@p14", this.Historia_podglad);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex) { throw new Exception("Uzytkownik->Edytuj" + Environment.NewLine + ex.Message); }
