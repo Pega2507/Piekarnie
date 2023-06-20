@@ -47,7 +47,8 @@ namespace Piekarnie
 
                     this.inpZapisz.Focus();
             }
-            this.status = new Status(this.db);
+            if(this.status==null)
+                this.status = new Status(this.db);
             this.status.Nazwa = this.inpZapisz.Text;
 
             if (this.status.Id == 0)

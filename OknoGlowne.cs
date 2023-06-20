@@ -58,7 +58,7 @@ namespace Piekarnie
                     this.tabControl1.TabPages.Remove(this.tabProdukty);
                 }
                 else
-                    this.odswiezListeUzytkownikow();
+                    this.odswiezListeProduktow();
                 if (!this.uzytkownik.Magazyn_podglad)
                 {
                     this.tabControl1.TabPages.Remove(this.tabMagazyny);

@@ -88,7 +88,8 @@ namespace Piekarnie
             }
             try
             {
-                this.podmiot = new Podmiot(this.db);
+                if(this.podmiot==null)
+                    this.podmiot = new Podmiot(this.db);
                 this.podmiot.Adres = this.inpAdres.Text;
                 this.podmiot.Nazwa = this.inpNazwa.Text;
                 this.podmiot.Telefon = this.inpTelefon.Text;
@@ -107,6 +108,7 @@ namespace Piekarnie
                 }
                 else
                     this.podmiot.Edytuj();
+                this.DialogResult = DialogResult.OK;
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
         }

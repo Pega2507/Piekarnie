@@ -49,7 +49,8 @@ namespace Piekarnie
 
                     this.inpNazwa.Focus();
             }
-            this.produkt = new Produkt(this.db);
+            if(this.produkt==null)
+                this.produkt = new Produkt(this.db);
             this.produkt.Nazwa= this.inpNazwa.Text;
             this.produkt.Opis= this.inpOpis.Text;
 

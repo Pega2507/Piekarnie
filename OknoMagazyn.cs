@@ -53,7 +53,8 @@ namespace Piekarnie
 
                     this.inpNazwa.Focus();
             }
-            this.magazyn = new Magazyn(this.db);
+            if(this.magazyn==null)
+                this.magazyn = new Magazyn(this.db);
             this.magazyn.Nazwa = this.inpNazwa.Text;
             this.magazyn.PiekarniaId = -1;
             try 
