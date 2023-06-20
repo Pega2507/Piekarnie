@@ -61,7 +61,7 @@ namespace Piekarnie
 
         public void Dodaj()
         {
-            String sql = "INSERT INTO [Podmiot] ([Nazwa],[Adres] ,[Telefon] ,[haslo] ,[data] ,[Typ] ,[zamowienia_podglad] ,[zamowienia_edycja] ,[produkty_podglad] ,[produkty_edycja] ,[magazyny_podglad] ,[magazyny_edycja] ,[podmiot_podglad] ,[podmiot_edycja]) ";
+            String sql = "INSERT INTO [Podmiot] ([Nazwa],[Adres],[Telefon],[Typ]) ";
             sql += " VALUES ";
             sql += "('" + this.Nazwa + "','" + this.Adres + "','" + this.Telefon + "'," + this.Typ.ToString() + ")";
            
