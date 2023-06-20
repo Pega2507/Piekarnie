@@ -82,6 +82,13 @@ namespace Piekarnie
             else
                 sql += "[piekarnia_id]=NULL";
             sql += " WHERE ID="+this.Id.ToString();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("Magazyn -> Edytuj" + Environment.NewLine + ex.Message); }
+
         }
 
         public void Usun()

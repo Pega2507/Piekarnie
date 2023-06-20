@@ -70,6 +70,12 @@ namespace Piekarnie
             String sql = "UPDATE [Statusy] SET ";
             sql += "[Nazwa]='" + this.Nazwa + "' ";
             sql += " WHERE ID="+this.Id.ToString();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("Statusy -> Edytuj" + Environment.NewLine + ex.Message); }
         }
 
         public void Usun()

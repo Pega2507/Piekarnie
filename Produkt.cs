@@ -74,6 +74,12 @@ namespace Piekarnie
             sql += "[Nazwa]='" + this.Nazwa + "', ";
             sql += "[Opis]='" + this.Opis + "' ";
             sql += " WHERE ID="+this.Id.ToString();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw new Exception("Produkt -> Edytuj" + Environment.NewLine + ex.Message); }
         }
 
         public void Usun()
@@ -84,7 +90,7 @@ namespace Piekarnie
                 SqlCommand cmd = new SqlCommand(sql, this.db.Polaczenie);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex) { throw new Exception("Magazyn -> Usun" + Environment.NewLine + ex.Message); }
+            catch (Exception ex) { throw new Exception("Produkt -> Usun" + Environment.NewLine + ex.Message); }
         }
 
     }
