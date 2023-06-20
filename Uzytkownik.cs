@@ -156,7 +156,7 @@ namespace Piekarnie
             sql += ",[produkty_podglad]=@p3";
             sql += ",[produkty_edycja]=@p4";
             sql += ",[magazyny_podglad]=@p5";
-            sql += ",[produkty_edycja]=@p6";
+            sql += ",[magazyny_edycja]=@p6";
             sql += ",[podmiot_podglad]=@p7";
             sql += ",[podmiot_edycja]=@p8";
             sql += ",[aktywny]=@p9";
