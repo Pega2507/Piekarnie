@@ -37,6 +37,7 @@ namespace Piekarnie
                 Produkt prod = new Produkt(this.poz.ProductId, this.db);
                 this.inpProdukt.Items.Clear();
                 this.inpProdukt.Items.Add(prod.Nazwa);
+                this.inpProdukt.SelectedIndex = 0;
                 this.inpCena.Text = this.poz.Cena.ToString();
                 this.inpIlosc.Text = this.poz.Ilosc.ToString();
             }

@@ -46,6 +46,7 @@ namespace Piekarnie
                     this.inpPodmiot.Items.Add(new PozycjaListyRozwijanej(this.zam.PodmiotId, pd.Nazwa));
                     Status stat = new Status(this.zam.StatusId, this.db);
                     this.inpStatus.Items.Add(new PozycjaListyRozwijanej(this.zam.StatusId, stat.Nazwa));
+                    this.inpStatus.SelectedIndex = 0;
 
                     this.inpData.Value = this.zam.Data;
 
@@ -93,7 +94,13 @@ namespace Piekarnie
                 {
                     foreach (DataRow pod in List.pobierzStatusy(this.db).Rows)
                     {
-                        this.inpStatus.Items.Add(new PozycjaListyRozwijanej((int)pod["ID"], pod["Nazwa"].ToString()));
+                        if (this.zam != null)
+                        {
+                            if ((int)pod["ID"] != this.zam.StatusId)
+                                this.inpStatus.Items.Add(new PozycjaListyRozwijanej((int)pod["ID"], pod["Nazwa"].ToString()));
+                        }
+                        else
+                            this.inpStatus.Items.Add(new PozycjaListyRozwijanej((int)pod["ID"], pod["Nazwa"].ToString()));
                     }
                 }
             }
@@ -110,10 +117,11 @@ namespace Piekarnie
                     {
                         //pobieramy id zaznaczonej pozycji
                         Int32 id = 0;
-                        Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].ToString(), out id);
+                        Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].Value.ToString(), out id);
 
                         PozycjaZamowienia poz = new PozycjaZamowienia(id, this.db);
                         poz.Usun();
+                        this.odswierzPozycje();
                     }
                     catch (Exception ex)
                     {
@@ -160,7 +168,7 @@ namespace Piekarnie
             if (this.dataGridViewProdukty.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewProdukty.SelectedRows[0].Cells[0].Value.ToString(), out id);
 
                 OknoPozycjiZamowienia poz = new OknoPozycjiZamowienia(id, this.db);
                 if (poz.ShowDialog() == DialogResult.OK)

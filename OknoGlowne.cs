@@ -44,6 +44,7 @@ namespace Piekarnie
                 }
                 else
                 {
+                    this.odswierzListeZamowien((int)TypPodmiotu.Piekarnia);
                     if (this.uzytkownik.MagazynId > 0)
                         this.tabControl1.TabPages.Remove(this.tabZamowieniaDoDostawcow);
                 }
@@ -159,7 +160,7 @@ namespace Piekarnie
             OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Piekarnia, this.db, this.MagId);
             if (okno.ShowDialog() == DialogResult.OK)
             {
-                this.dataGridViewZamowienia.Refresh();
+                this.odswierzListeZamowien((int)TypPodmiotu.Piekarnia);
             }
         }
 
@@ -177,7 +178,7 @@ namespace Piekarnie
             OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Piekarnia, this.db, this.MagId);
             if (okno.ShowDialog() == DialogResult.OK)
             {
-                this.dataGridViewZamowienia.Refresh();
+                this.odswierzListeZamowien((int)TypPodmiotu.Piekarnia);
             }
         }
 
@@ -186,12 +187,12 @@ namespace Piekarnie
             if (this.dataGridViewZamowienia.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewZamowienia.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewZamowienia.SelectedRows[0].Cells[0].Value.ToString(), out id);
 
                 OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Piekarnia, id, this.db);
                 if (okno.ShowDialog() == DialogResult.OK)
                 {
-                    this.dataGridViewZamowienia.Refresh();
+                    this.odswierzListeZamowien((int)TypPodmiotu.Piekarnia);
                 }
             }
         }
@@ -201,12 +202,13 @@ namespace Piekarnie
             if (this.dataGridViewZamowienia.SelectedRows.Count == 1)
             {
                 Int32 id = 0;
-                Int32.TryParse(this.dataGridViewZamowienia.SelectedRows[0].Cells[0].ToString(), out id);
+                Int32.TryParse(this.dataGridViewZamowienia.SelectedRows[0].Cells[0].Value.ToString(), out id);
+
                 try
                 {
                     Zamowienie zam = new Zamowienie(id, this.db);
                     zam.Usun();
-                    this.dataGridViewZamowienia.Refresh();
+                    this.odswierzListeZamowien((int)TypPodmiotu.Piekarnia);
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
@@ -377,8 +379,50 @@ namespace Piekarnie
             }
             else
             {
-                this.dataGridViewZamówieniaDostawcy.DataSource = List.pobierzZamowienia(typZamowienia, this.MagId, this.db);
-                this.dataGridViewZamówieniaDostawcy.Refresh();
+                this.dataGridViewZamowieniaDostawcy.DataSource = List.pobierzZamowienia(typZamowienia, this.MagId, this.db);
+                this.dataGridViewZamowieniaDostawcy.Refresh();
             }
+        }
+
+        private void btnDodajZamDost_Click(object sender, EventArgs e)
+        {
+            OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Dostawca, this.db, this.MagId);
+            if (okno.ShowDialog() == DialogResult.OK)
+            {
+                this.odswierzListeZamowien((int)TypPodmiotu.Dostawca);
+            }
+        }
+
+        private void btnEdytujZamDost_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewZamowieniaDostawcy.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewZamowieniaDostawcy.SelectedRows[0].Cells[0].Value.ToString(), out id);
+
+                OknoZamowienia okno = new OknoZamowienia((int)TypPodmiotu.Dostawca, id, this.db);
+                if (okno.ShowDialog() == DialogResult.OK)
+                {
+                    this.odswierzListeZamowien((int)TypPodmiotu.Dostawca);
+                }
+            }
+        }
+
+        private void btnUsunZamDost_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewZamowieniaDostawcy.SelectedRows.Count == 1)
+            {
+                Int32 id = 0;
+                Int32.TryParse(this.dataGridViewZamowieniaDostawcy.SelectedRows[0].Cells[0].Value.ToString(), out id);
+
+                try
+                {
+                    Zamowienie zam = new Zamowienie(id, this.db);
+                    zam.Usun();
+                    this.odswierzListeZamowien((int)TypPodmiotu.Dostawca);
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+        }
     }
 }
